@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produk - Momentum Machinery Part | Supplier Resmi Produk Rexnord</title>
+  <meta name="description" content="Produk Momentum Machinery Part - Supplier resmi produk Rexnord dengan kualitas terbaik">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* CSS Variables untuk tema konsisten */
+    :root {
+      --primary-color: #142b4f;
+      --secondary-color: #b8860b;
+      --accent-color: #f7f1e3;
+      --text-color: #0f223a;
+      --light-color: #fbfbfb;
+      --border-color: #e6dfd2;
+      --shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.12);
+      --transition: all 0.25s ease;
+    }
+    /* Reset dan basis */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: #f5f2eb;
+      overflow-x: hidden;
+    }
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    /* Header */
+    header {
+      background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: var(--transition);
+      position: relative; /* Diperlukan untuk positioning tombol menu */
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      height: 70px; /* Diperbesar dari 40px menjadi 70px */
+      margin-right: 15px; /* Diperbesar jarak antara logo dan teks */
+      transition: var(--transition);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+    .logo img:hover {
+      transform: scale(1.05); /* Efek hover untuk logo */
+    }
+    .logo h1 {
+      font-size: 26px; /* Diperbesar dari 22px menjadi 26px */
+      font-weight: 700;
+      color: var(--primary-color);
+      letter-spacing: -0.5px;
+    }
+    
+    /* Navigation - Menu tersembunyi di dalam hamburger */
+    nav {
+      display: none; /* Selalu tersembunyi secara default */
+      position: fixed;
+      top: 80px; /* Sesuaikan dengan tinggi header */
+      right: 20px;
+      background: #ffffff;
+      flex-direction: column;
+      align-items: flex-end;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      border-radius: 8px;
+      min-width: 200px;
+      z-index: 99;
+      border: 1px solid var(--border-color);
+    }
+    
+    nav.active {
+      display: flex;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      font-size: 15px;
+      position: relative;
+      transition: var(--transition);
+      padding: 8px 0;
+      display: block;
+      margin: 10px 0;
+      width: 100%;
+      text-align: right;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--secondary-color);
+      transition: var(--transition);
+    }
+    
+    nav a:hover {
+      color: var(--secondary-color);
+      transform: translateX(-2px);
+    }
+    
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+    
+    nav a.active {
+      color: var(--secondary-color);
+      font-weight: bold;
+    }
+    
+    /* Mobile Menu Button - Posisi di pojok kanan atas */
+    .mobile-menu-btn {
+      display: block; /* Selalu tampilkan */
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      font-size: 24px;
+      color: var(--primary-color);
+      cursor: pointer;
+      padding: 8px 10px;
+      border-radius: 8px;
+      transition: var(--transition);
+      position: absolute; /* Menggunakan positioning absolut */
+      top: 50%; /* Posisi vertikal tengah relatif terhadap header */
+      right: 20px; /* Jarak 20px dari tepi kanan */
+      transform: translateY(-50%); /* Menyesuaikan posisi vertikal ke tengah */
+      z-index: 101; /* Di atas elemen lain dalam header */
+      box-shadow: var(--shadow);
+    }
+    
+    .mobile-menu-btn:hover {
+      background-color: rgba(26, 58, 95, 0.1);
+      transform: translateY(-50%) scale(1.1); /* Menambah efek hover tanpa mengubah posisi */
+    }
+    
+    /* Products Section */
+    .products-section {
+      padding: 48px 0;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section-title {
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--primary-color);
+      margin-bottom: 16px;
+      letter-spacing: -0.3px;
+    }
+    .section-subtitle {
+      font-size: 16px;
+      color: #6c757d;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 28px;
+    }
+    .product-card {
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: var(--transition);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border-color);
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+    .product-image {
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer; /* Menambahkan pointer untuk menandakan gambar bisa diklik */
+    }
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    .product-card:hover .product-image img {
+      transform: scale(1.05);
+    }
+    .product-content {
+      padding: 22px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-category {
+      font-size: 12px;
+      color: var(--secondary-color);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+    .product-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+    .product-description {
+      font-size: 14px;
+      color: #6c757d;
+      margin-bottom: 15px;
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+    .product-footer {
+      display: flex;
+      justify-content: center; /* Diubah untuk menempatkan PDF di tengah */
+      align-items: center;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+      gap: 12px;
+    }
+    .product-pdf {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    .product-pdf:hover {
+      color: var(--secondary-color);
+    }
+    .product-pdf i {
+      font-size: 16px;
+    }
+    .product-video {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    .product-video:hover {
+      color: var(--secondary-color);
+    }
+
+    .btn {
+      background: linear-gradient(180deg, #173256 0%, #142b4f 100%);
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-hover);
+    }
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    .btn-outline {
+      background: #fff;
+      color: var(--primary-color);
+      border: 1px solid var(--border-color);
+    }
+    .btn-outline:hover {
+      color: var(--secondary-color);
+      border-color: var(--secondary-color);
+    }
+
+    input[type="text"], input[type="number"], select {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      outline: none;
+      transition: var(--transition);
+    }
+    input[type="text"]:focus, input[type="number"]:focus, select:focus {
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.15);
+    }
+
+    #selectorSection, #smartFilterSection {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+    }
+    #selectorSection h3, #smartFilterSection h3 {
+      display: inline-block;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--secondary-color);
+    }
+    
+    /* Modal untuk gambar yang diperbesar */
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      animation: fadeIn 0.3s;
+    }
+    
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: zoomIn 0.3s;
+    }
+    
+    @keyframes zoomIn {
+      from {transform: translate(-50%, -50%) scale(0.5);}
+      to {transform: translate(-50%, -50%) scale(1);}
+    }
+    
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    
+    .close-btn:hover {
+      color: var(--secondary-color);
+    }
+    
+    /* Animasi untuk modal */
+    .modal-content, .close-btn {
+      animation-name: zoom;
+      animation-duration: 0.3s;
+    }
+    
+    @keyframes zoom {
+      from {transform: translate(-50%, -50%) scale(0)}
+      to {transform: translate(-50%, -50%) scale(1)}
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        top: 70px;
+        right: 15px;
+        min-width: 180px;
+        padding: 15px;
+      }
+      
+      .section-title {
+        font-size: 28px;
+      }
+      
+      .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+      }
+      
+      /* Adjust logo size for mobile */
+      .logo img {
+        height: 50px;
+        margin-right: 10px;
+      }
+      
+      .logo h1 {
+        font-size: 20px;
+      }
+      
+      /* Adjust mobile menu button position for smaller screens */
+      .mobile-menu-btn {
+        right: 15px;
+        font-size: 22px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      nav {
+        right: 10px;
+        min-width: 150px;
+        padding: 12px;
+      }
+      
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .close-btn {
+        top: 15px;
+        right: 20px;
+        font-size: 30px;
+      }
+      
+      /* Further adjust logo size for smaller mobile */
+      .logo img {
+        height: 45px;
+      }
+      
+      /* Further adjust mobile menu button position for very small screens */
+      .mobile-menu-btn {
+        right: 10px;
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-container">
+        <div class="logo">
+          <img src="momentum.png" alt="Momentum Machinery Part Logo">
+          <h1>Momentum Machinery</h1>
+        </div>
+      </div>
+    </div>
+    <!-- Tombol menu di luar container, di pojok kanan atas -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav id="navMenu">
+      <a href="index.html">Beranda</a>
+      <a href="about.html">Tentang Kami</a>
+      <a href="products.html" class="active">Produk</a>
+    </nav>
+  </header>
+
+  
+  <!-- Products Section -->
+  <section class="products-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Produk Kami</h2>
+        <p class="section-subtitle">
+          Kami menyediakan berbagai produk berkualitas tinggi dari Falk Rexnord untuk memenuhi kebutuhan industri Anda.
+        </p>
+      </div>
+
+      <div id="selectorSection" style="background:#fff;border:1px solid var(--border-color);box-shadow: var(--shadow);border-radius:10px;padding:20px;margin-bottom:30px;">
+        <h3 id="selectorTitle" style="color:var(--primary-color);font-size:20px;margin-bottom:6px;">Coupling Selector Otomatis</h3>
+        <p id="selectorAliases" style="color:#6c757d;font-size:13px;margin-bottom:8px;"></p>
+        <p style="color:#6c757d;font-size:14px;margin-bottom:15px;">Masukkan kebutuhan bore, RPM, dan torque untuk menemukan tipe dan model coupling yang sesuai.</p>
+        <div style="display:grid;grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));gap:12px;margin-bottom:12px;">
+          <div>
+            <label for="typeSelect" style="display:block;font-size:12px;color:#6c757d;margin-bottom:6px;">Tipe Coupling</label>
+            <select id="typeSelect" style="width:100%;padding:10px;border:1px solid var(--border-color);border-radius:6px;">
+              <option value="">Semua</option>
+            </select>
+          </div>
+          <div>
+            <label for="boreInput" style="display:block;font-size:12px;color:#6c757d;margin-bottom:6px;">Bore (mm)</label>
+            <input id="boreInput" type="number" min="0" placeholder="mis. 35" style="width:100%;padding:10px;border:1px solid var(--border-color);border-radius:6px;" />
+          </div>
+          <div>
+            <label for="rpmInput" style="display:block;font-size:12px;color:#6c757d;margin-bottom:6px;">RPM</label>
+            <input id="rpmInput" type="number" min="0" placeholder="mis. 1500" style="width:100%;padding:10px;border:1px solid var(--border-color);border-radius:6px;" />
+          </div>
+          <div>
+            <label for="torqueInput" style="display:block;font-size:12px;color:#6c757d;margin-bottom:6px;">Torque (Nm) opsional</label>
+            <input id="torqueInput" type="number" min="0" placeholder="mis. 200" style="width:100%;padding:10px;border:1px solid var(--border-color);border-radius:6px;" />
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px;">
+          <button id="searchBtn" class="btn" type="button">Cari Coupling</button>
+          <button id="resetBtn" class="btn btn-outline" type="button">Reset</button>
+        </div>
+        <div id="selectorResults" style="margin-top:10px;"></div>
+        <hr style="margin:20px 0;border:none;border-top:1px solid var(--border-color);" />
+        <h4 style="color:var(--primary-color);font-size:18px;margin-bottom:10px;">Pencarian Ukuran Bore Cepat</h4>
+        <div style="display:grid;grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));gap:12px;margin-bottom:12px;">
+          <div>
+            <label for="quickTypeSelect" style="display:block;font-size:12px;color:#6c757d;margin-bottom:6px;">Tipe Coupling</label>
+            <select id="quickTypeSelect" style="width:100%;padding:10px;border:1px solid var(--border-color);border-radius:6px;">
+              <option value="">Semua</option>
+            </select>
+          </div>
+          <div>
+            <label for="quickBoreInput" style="display:block;font-size:12px;color:#6c757d;margin-bottom:6px;">Bore (mm)</label>
+            <input id="quickBoreInput" type="number" min="0" placeholder="mis. 35" style="width:100%;padding:10px;border:1px solid var(--border-color);border-radius:6px;" />
+          </div>
+        </div>
+        <button id="quickSearchBtn" class="btn" type="button">Cari Ukuran</button>
+        <div id="quickResults" style="margin-top:10px;"></div>
+      </div>
+
+      <div id="smartFilterSection" style="background:#fff;border:1px solid var(--border-color);box-shadow: var(--shadow);border-radius:10px;padding:20px;margin-bottom:30px;">
+        <h3 style="color:var(--primary-color);font-size:20px;margin-bottom:10px;">Smart Filter Berdasarkan Katalog</h3>
+        <div style="display:grid;grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));gap:12px;margin-bottom:12px;">
+          <div>
+            <label for="sfTypeSelect" style="display:block;font-size:12px;color:#6c757d;margin-bottom:6px;">Tipe</label>
+            <select id="sfTypeSelect" style="width:100%;padding:10px;border:1px solid var(--border-color);border-radius:6px;">
+              <option value="">Semua</option>
+              <option value="Wrapflex">Wrapflex</option>
+              <option value="Gear">Gear</option>
+              <option value="Steelflex">Steelflex</option>
+              <option value="Grease">Grease</option>
+            </select>
+          </div>
+          <div>
+            <label for="sfQuery" style="display:block;font-size:12px;color:#6c757d;margin-bottom:6px;">Kata kunci</label>
+            <input id="sfQuery" type="text" placeholder="mis. 5R, 1010G" style="width:100%;padding:10px;border:1px solid var(--border-color);border-radius:6px;" />
+          </div>
+          <div>
+            <label for="sfBore" style="display:block;font-size:12px;color:#6c757d;margin-bottom:6px;">Bore (mm)</label>
+            <input id="sfBore" type="number" min="0" placeholder="mis. 35" style="width:100%;padding:10px;border:1px solid var(--border-color);border-radius:6px;" />
+          </div>
+          <div>
+            <label for="sfRpm" style="display:block;font-size:12px;color:#6c757d;margin-bottom:6px;">RPM</label>
+            <input id="sfRpm" type="number" min="0" placeholder="mis. 1500" style="width:100%;padding:10px;border:1px solid var(--border-color);border-radius:6px;" />
+          </div>
+          <div>
+            <label for="sfTorque" style="display:block;font-size:12px;color:#6c757d;margin-bottom:6px;">Torque (Nm)</label>
+            <input id="sfTorque" type="number" min="0" placeholder="mis. 200" style="width:100%;padding:10px;border:1px solid var(--border-color);border-radius:6px;" />
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px;">
+          <button id="sfSearchBtn" class="btn" type="button">Cari</button>
+          <button id="sfResetBtn" class="btn btn-outline" type="button">Reset</button>
+        </div>
+        <div id="sfResults" style="margin-top:10px;"></div>
+      </div>
+
+
+      <div class="products-grid" id="productsGrid">
+        <!-- Products will be generated dynamically from JavaScript -->
+      </div>
+    </div>
+  </section>
+  
+  <!-- Modal untuk gambar yang diperbesar -->
+  <div id="imageModal" class="image-modal">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+  
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('#navMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+      const isClickInsideNav = navMenu.contains(event.target);
+      const isClickOnButton = mobileMenuBtn.contains(event.target);
+      
+      if (!isClickInsideNav && !isClickOnButton && navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+      }
+    });
+    
+    // Data produk
+    const products = [
+      {
+        id: 1,
+        name: "Coupling Wrapflex Falk",
+        category: "Coupling",
+        description: "Coupling elastomer Falk Wrapflex yang dirancang untuk memberikan performa tinggi dan keandalan maksimal dalam berbagai aplikasi industri.",
+        image: "wrapflex.png",
+        pdf: "491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf",
+        video: "https://youtu.be/K713GUabA_Q?si=suimdgQH1qm5WZmT"
+      },
+      {
+        id: 2,
+        name: "Gear Coupling Falk",
+        category: "Coupling",
+        description: "Coupling roda gigi Falk Lifelign yang dirancang untuk aplikasi berat dengan misalignment yang tinggi.",
+        image: "gear.png",
+        pdf: "458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf",
+        video: "https://youtu.be/DvN2HzqPVvc?si=TXYhsUZudsekPli-"
+      },
+      {
+        id: 3,
+        name: "Steelflex Coupling",
+        category: "Coupling",
+        description: "Coupling Steelflex Falk yang menawarkan fleksibilitas dan daya tahan dalam berbagai kondisi operasional.",
+        image: "steelflex.png",
+        pdf: "CP5-004_productsheet.pdf",
+        video: "https://youtu.be/OUX66s2cYlg?si=ejHtMwWXEpHeW7BQ"
+      },
+      {
+        id: 4,
+        name: "LTG Grease Falk (Pail)",
+        category: "Pelumas",
+        description: "Pelumas Falk Long Term Grease dalam kemasan pail untuk aplikasi industri berat.",
+        image: "pail.png",
+        pdf: "840201_Falk-Long-Term-Grease_WEB (1).pdf"
+      },
+      {
+        id: 5,
+        name: "LTG Grease Falk (Tube)",
+        category: "Pelumas",
+        description: "Pelumas Falk Long Term Grease dalam kemasan tube untuk aplikasi presisi dan mudah penggunaan.",
+        image: "tube.png",
+        pdf: "840201_Falk-Long-Term-Grease_WEB (1).pdf"
+      }
+    ];
+    
+    // Fungsi untuk menampilkan produk
+    function displayProducts() {
+      const productsGrid = document.getElementById('productsGrid');
+      productsGrid.innerHTML = '';
+      
+      products.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.className = 'product-card';
+        
+        productCard.innerHTML = `
+          <div class="product-image" onclick="openModal('${product.image}')">
+            <img src="${product.image}" alt="${product.name}">
+          </div>
+          <div class="product-content">
+            <div class="product-category">${product.category}</div>
+            <h3 class="product-name">${product.name}</h3>
+            <p class="product-description">${product.description}</p>
+            <div class="product-footer">
+              <a href="${product.pdf}" class="product-pdf" target="_blank">
+                <i class="fas fa-file-pdf"></i> Dokumen PDF
+              </a>
+              ${product.video ? `<a href="${product.video}" class="product-video" target="_blank"><i class="fab fa-youtube"></i> Video</a>` : ``}
+            </div>
+          </div>
+        `;
+        
+        productsGrid.appendChild(productCard);
+      });
+    }
+    
+    // Fungsi untuk modal gambar
+    function openModal(imageSrc) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      
+      modal.style.display = 'block';
+      modalImg.src = imageSrc;
+      
+      // Menutup modal saat klik di luar gambar
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          closeModal();
+        }
+      }
+    }
+    
+    function closeModal() {
+      document.getElementById('imageModal').style.display = 'none';
+    }
+
+    // Inisialisasi halaman
+    document.addEventListener('DOMContentLoaded', function() {
+      displayProducts();
+      initCouplingSelector();
+      bindSmartFilter();
+    });
+
+    let catalogData = null;
+    const fallbackCatalog = {
+      tool: {
+        name: 'Smart Selector',
+        aliases: [
+          'Smart Recommendation Tool',
+          'Coupling Size Selector',
+          'Coupling Recommendation System',
+          'Automatic Coupling Calculator',
+          'Product Matching Tool',
+          'Smart Filter Based on Catalog',
+          'Automatic Bore & RPM Selector'
+        ]
+      },
+      types: [
+        { type: 'Wrapflex', models: [
+          { model: '5R',  size: '5R',  min_bore_mm: 5,  max_bore_mm: 15,  max_rpm: 6000, max_torque_Nm: 30,  pdf: '491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf' },
+          { model: '10R', size: '10R', min_bore_mm: 8,  max_bore_mm: 25,  max_rpm: 6000, max_torque_Nm: 60,  pdf: '491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf' },
+          { model: '20R', size: '20R', min_bore_mm: 10, max_bore_mm: 50,  max_rpm: 6000, max_torque_Nm: 120, pdf: '491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf' },
+          { model: '30R', size: '30R', min_bore_mm: 12, max_bore_mm: 75,  max_rpm: 6000, max_torque_Nm: 250, pdf: '491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf' },
+          { model: '40R', size: '40R', min_bore_mm: 15, max_bore_mm: 100, max_rpm: 6000, max_torque_Nm: 400, pdf: '491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf' },
+          { model: '50R', size: '50R', min_bore_mm: 18, max_bore_mm: 125, max_rpm: 6000, max_torque_Nm: 600, pdf: '491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf' },
+          { model: '60R', size: '60R', min_bore_mm: 20, max_bore_mm: 150, max_rpm: 6000, max_torque_Nm: 900, pdf: '491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf' }
+        ] },
+        { type: 'Gear', models: [
+          { model: 'G1010', size: '1010G', min_bore_mm: 12, max_bore_mm: 40, max_rpm: 4500, max_torque_Nm: 400, pdf: '458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf' },
+          { model: 'G1020', size: '1020G', min_bore_mm: 20, max_bore_mm: 80, max_rpm: 4500, max_torque_Nm: 1000, pdf: '458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf' },
+          { model: 'G1030', size: '1030G', min_bore_mm: 25, max_bore_mm: 120, max_rpm: 4500, max_torque_Nm: 1800, pdf: '458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf' }
+        ] },
+        { type: 'Steelflex', models: [
+          { model: 'T10', size: '1020T', min_bore_mm: 12, max_bore_mm: 30, max_rpm: 5000, max_torque_Nm: 200, pdf: 'CP5-004_productsheet.pdf' },
+          { model: 'T20', size: '1030T', min_bore_mm: 15, max_bore_mm: 60, max_rpm: 5000, max_torque_Nm: 500, pdf: 'CP5-004_productsheet.pdf' },
+          { model: 'T30', size: '1040T', min_bore_mm: 20, max_bore_mm: 90, max_rpm: 5000, max_torque_Nm: 900, pdf: 'CP5-004_productsheet.pdf' }
+        ] },
+        { type: 'Grease', models: [
+          { model: 'LTG Pail', product_form: 'Grease', package: 'Pail', pdf: '840201_Falk-Long-Term-Grease_WEB (1).pdf' },
+          { model: 'LTG Tube', product_form: 'Grease', package: 'Tube', pdf: '840201_Falk-Long-Term-Grease_WEB (1).pdf' }
+        ] }
+      ]
+    };
+
+    function populateSelectors(data) {
+      const typeSelect = document.getElementById('typeSelect');
+      const quickTypeSelect = document.getElementById('quickTypeSelect');
+      const titleEl = document.getElementById('selectorTitle');
+      if (titleEl) {
+        titleEl.textContent = (data.tool && data.tool.name) ? data.tool.name : 'Coupling Selector Otomatis';
+      }
+      const aliasEl = document.getElementById('selectorAliases');
+      if (aliasEl && data.tool && Array.isArray(data.tool.aliases)) {
+        aliasEl.textContent = data.tool.aliases.join(' / ');
+      }
+      ['Wrapflex','Gear','Steelflex','Grease'].forEach(tt => {
+        const opt1 = document.createElement('option');
+        opt1.value = tt;
+        opt1.textContent = tt;
+        typeSelect.appendChild(opt1);
+        const opt2 = document.createElement('option');
+        opt2.value = tt;
+        opt2.textContent = tt;
+        quickTypeSelect.appendChild(opt2);
+      });
+    }
+
+    function initCouplingSelector() {
+      fetch('catalog.json')
+        .then(r => r.json())
+        .then(data => {
+          catalogData = data;
+          populateSelectors(data);
+        })
+        .catch(() => {
+          catalogData = fallbackCatalog;
+          populateSelectors(fallbackCatalog);
+        })
+        .finally(() => {
+          document.getElementById('searchBtn').addEventListener('click', handleSearch);
+          document.getElementById('resetBtn').addEventListener('click', resetSearch);
+          document.getElementById('quickSearchBtn').addEventListener('click', handleQuickSearch);
+        });
+    }
+
+    function handleSearch() {
+      const type = document.getElementById('typeSelect').value.trim();
+      const bore = parseFloat(document.getElementById('boreInput').value);
+      const rpm = parseFloat(document.getElementById('rpmInput').value);
+      const torqueVal = document.getElementById('torqueInput').value;
+      const torque = torqueVal === '' ? null : parseFloat(torqueVal);
+      const results = filterCouplings({ type, bore, rpm, torque });
+      renderResults(results, 'selectorResults');
+    }
+
+    function resetSearch() {
+      document.getElementById('typeSelect').value = '';
+      document.getElementById('boreInput').value = '';
+      document.getElementById('rpmInput').value = '';
+      document.getElementById('torqueInput').value = '';
+      document.getElementById('selectorResults').innerHTML = '';
+    }
+
+    function handleQuickSearch() {
+      const type = document.getElementById('quickTypeSelect').value.trim();
+      const bore = parseFloat(document.getElementById('quickBoreInput').value);
+      const results = filterCouplings({ type, bore, rpm: null, torque: null });
+      renderResults(results, 'quickResults');
+    }
+
+    function filterCouplings({ type, bore, rpm, torque }) {
+      if (!catalogData || !Array.isArray(catalogData.types)) return [];
+      const allowed = ['Wrapflex','Gear','Steelflex','Grease'];
+      const filteredTypes = (catalogData.types || []).filter(t => allowed.includes(t.type));
+      const types = type ? filteredTypes.filter(t => t.type === type) : filteredTypes;
+      const matches = [];
+      types.forEach(t => {
+        t.models.forEach(m => {
+          if (t.type === 'Grease') {
+            matches.push({ type: t.type, model: m.model, product_form: m.product_form, package: m.package, pdf: m.pdf });
+            return;
+          }
+          const boreOk = isNaN(bore) ? true : (typeof m.min_bore_mm === 'number' ? (bore >= m.min_bore_mm && bore <= m.max_bore_mm) : (bore <= m.max_bore_mm));
+          const rpmOk = isNaN(rpm) ? true : (typeof m.max_rpm === 'number' ? rpm <= m.max_rpm : true);
+          const torqueOk = torque === null || isNaN(torque) ? true : (typeof m.max_torque_Nm === 'number' ? torque <= m.max_torque_Nm : true);
+          if (boreOk && rpmOk && torqueOk) {
+            matches.push({ type: t.type, model: m.model, size: m.size, min_bore_mm: m.min_bore_mm, max_bore_mm: m.max_bore_mm, max_rpm: m.max_rpm, max_torque_Nm: m.max_torque_Nm, pdf: m.pdf });
+          }
+        });
+      });
+      return matches;
+    }
+
+    function renderResults(items, containerId) {
+      const container = document.getElementById(containerId);
+      if (!items || items.length === 0) {
+        container.innerHTML = '<div style="padding:10px;color:#6c757d;">Tidak ada hasil yang cocok.</div>';
+        return;
+      }
+      const group = {};
+      items.forEach(it => {
+        if (!group[it.type]) group[it.type] = [];
+        group[it.type].push(it);
+      });
+      const frag = document.createDocumentFragment();
+      Object.keys(group).forEach(type => {
+        const section = document.createElement('div');
+        section.style.marginBottom = '12px';
+        const title = document.createElement('div');
+        title.textContent = type;
+        title.style.color = 'var(--primary-color)';
+        title.style.fontWeight = '600';
+        title.style.marginBottom = '6px';
+        section.appendChild(title);
+        const doc = getDocInfo(type);
+        if (doc) {
+          const src = document.createElement('div');
+          src.style.fontSize = '12px';
+          src.style.color = '#6c757d';
+          src.style.marginBottom = '6px';
+          src.innerHTML = `Sumber: <a href="${doc.file}" target="_blank" style="color:var(--primary-color);text-decoration:none;">${doc.title}</a>`;
+          section.appendChild(src);
+        }
+        const grid = document.createElement('div');
+        grid.style.display = 'grid';
+        grid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(220px, 1fr))';
+        grid.style.gap = '10px';
+        group[type].forEach(m => {
+          const card = document.createElement('div');
+          card.style.border = '1px solid var(--border-color)';
+          card.style.borderRadius = '8px';
+          card.style.padding = '12px';
+          card.style.boxShadow = 'var(--shadow)';
+          const name = document.createElement('div');
+          name.textContent = `${m.model}`;
+          name.style.fontWeight = '600';
+          name.style.marginBottom = '6px';
+          const specs = document.createElement('div');
+          specs.style.fontSize = '13px';
+          specs.style.color = '#6c757d';
+          if (type === 'Grease') {
+            specs.innerHTML = `Form: ${m.product_form || '-'}<br/>Kemasan: ${m.package || '-'}${m.pdf ? `<br/><a href="${m.pdf}" target="_blank" style="color:var(--primary-color);text-decoration:none;">PDF</a>` : ''}`;
+          } else {
+            const boreTxt = (typeof m.min_bore_mm === 'number') ? `Bore: ${m.min_bore_mm}–${m.max_bore_mm} mm` : `Max Bore: ${m.max_bore_mm} mm`;
+            const rpmTxt = (typeof m.max_rpm === 'number') ? `Max RPM: ${m.max_rpm}` : '';
+            const tqTxt = (typeof m.max_torque_Nm === 'number') ? `Max Torque: ${m.max_torque_Nm} Nm` : '';
+            const sizeTxt = m.size ? `Size: ${m.size}` : '';
+            specs.innerHTML = `${sizeTxt}${sizeTxt ? '<br/>' : ''}${boreTxt}${rpmTxt ? '<br/>' : ''}${rpmTxt}${tqTxt ? '<br/>' : ''}${tqTxt}${m.pdf ? `<br/><a href="${m.pdf}" target="_blank" style="color:var(--primary-color);text-decoration:none;">PDF</a>` : ''}`;
+          }
+          card.appendChild(name);
+          card.appendChild(specs);
+          if (Array.isArray(m.features) && m.features.length) {
+            const f = document.createElement('div');
+            f.style.fontSize = '12px';
+            f.style.color = '#6c757d';
+            f.style.marginTop = '6px';
+            f.innerHTML = `Fitur: ${m.features.join(', ')}`;
+            card.appendChild(f);
+          }
+          if (Array.isArray(m.applications) && m.applications.length) {
+            const a = document.createElement('div');
+            a.style.fontSize = '12px';
+            a.style.color = '#6c757d';
+            a.style.marginTop = '4px';
+            a.innerHTML = `Aplikasi: ${m.applications.join(', ')}`;
+            card.appendChild(a);
+          }
+          grid.appendChild(card);
+        });
+        section.appendChild(grid);
+        frag.appendChild(section);
+      });
+      container.innerHTML = '';
+      container.appendChild(frag);
+    }
+
+    function bindSmartFilter() {
+      const searchBtn = document.getElementById('sfSearchBtn');
+      const resetBtn = document.getElementById('sfResetBtn');
+      if (searchBtn) searchBtn.addEventListener('click', handleSmartFilterSearch);
+      if (resetBtn) resetBtn.addEventListener('click', () => {
+        document.getElementById('sfTypeSelect').value = '';
+        document.getElementById('sfQuery').value = '';
+        document.getElementById('sfBore').value = '';
+        document.getElementById('sfRpm').value = '';
+        document.getElementById('sfTorque').value = '';
+        document.getElementById('sfResults').innerHTML = '';
+      });
+    }
+
+    function handleSmartFilterSearch() {
+      const type = document.getElementById('sfTypeSelect').value.trim();
+      const q = document.getElementById('sfQuery').value.trim().toLowerCase();
+      const bore = parseFloat(document.getElementById('sfBore').value);
+      const rpm = parseFloat(document.getElementById('sfRpm').value);
+      const torqueVal = document.getElementById('sfTorque').value;
+      const torque = torqueVal === '' ? null : parseFloat(torqueVal);
+      const results = smartFilterItems({ type, q, bore, rpm, torque });
+      window.lastSmartFilterContext = { type, q, bore, rpm, torque };
+      renderSmartResults(results, 'sfResults');
+    }
+
+    function smartFilterItems({ type, q, bore, rpm, torque }) {
+      const allowed = ['Wrapflex','Gear','Steelflex','Grease'];
+      const types = (catalogData && catalogData.types ? catalogData.types : fallbackCatalog.types).filter(t => allowed.includes(t.type));
+      const selected = type ? types.filter(t => t.type === type) : types;
+      const matches = [];
+      selected.forEach(t => {
+        t.models.forEach(m => {
+          let textOk = true;
+          if (q) {
+            const base = `${t.type} ${m.model} ${m.size || ''}`.toLowerCase();
+            textOk = base.includes(q);
+          }
+          if (t.type === 'Grease') {
+            if (textOk) {
+              matches.push({ type: t.type, model: m.model, product_form: m.product_form, package: m.package, pdf: m.pdf });
+            }
+            return;
+          }
+          const boreOk = isNaN(bore) ? true : (typeof m.min_bore_mm === 'number' ? (bore >= m.min_bore_mm && bore <= m.max_bore_mm) : (bore <= m.max_bore_mm));
+          const rpmOk = isNaN(rpm) ? true : (typeof m.max_rpm === 'number' ? rpm <= m.max_rpm : true);
+          const torqueOk = torque === null || isNaN(torque) ? true : (typeof m.max_torque_Nm === 'number' ? torque <= m.max_torque_Nm : true);
+          if (textOk && boreOk && rpmOk && torqueOk) {
+            matches.push({ type: t.type, model: m.model, size: m.size, min_bore_mm: m.min_bore_mm, max_bore_mm: m.max_bore_mm, max_rpm: m.max_rpm, max_torque_Nm: m.max_torque_Nm, pdf: m.pdf });
+          }
+        });
+      });
+      return matches;
+    }
+
+    function renderSmartResults(items, containerId) {
+      const container = document.getElementById(containerId);
+      if (!items || items.length === 0) {
+        container.innerHTML = '<div style="padding:10px;color:#6c757d;">Tidak ada hasil yang cocok.</div>';
+        return;
+      }
+      const group = {};
+      items.forEach(it => {
+        if (!group[it.type]) group[it.type] = [];
+        group[it.type].push(it);
+      });
+      const frag = document.createDocumentFragment();
+      Object.keys(group).forEach(type => {
+        const section = document.createElement('div');
+        section.style.marginBottom = '12px';
+        const title = document.createElement('div');
+        title.textContent = type;
+        title.style.color = 'var(--primary-color)';
+        title.style.fontWeight = '600';
+        title.style.marginBottom = '6px';
+        section.appendChild(title);
+        const doc = getDocInfo(type);
+        if (doc) {
+          const src = document.createElement('div');
+          src.style.fontSize = '12px';
+          src.style.color = '#6c757d';
+          src.style.marginBottom = '6px';
+          src.innerHTML = `Sumber: <a href="${doc.file}" target="_blank" style="color:var(--primary-color);text-decoration:none;">${doc.title}</a>`;
+          section.appendChild(src);
+        }
+        const grid = document.createElement('div');
+        grid.style.display = 'grid';
+        grid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(220px, 1fr))';
+        grid.style.gap = '10px';
+        group[type].forEach(m => {
+          const card = document.createElement('div');
+          card.style.border = '1px solid var(--border-color)';
+          card.style.borderRadius = '8px';
+          card.style.padding = '12px';
+          card.style.boxShadow = 'var(--shadow)';
+          const name = document.createElement('div');
+          name.textContent = `${m.model}`;
+          name.style.fontWeight = '600';
+          name.style.marginBottom = '6px';
+          const specs = document.createElement('div');
+          specs.style.fontSize = '13px';
+          specs.style.color = '#6c757d';
+          if (type === 'Grease') {
+            specs.innerHTML = `Form: ${m.product_form || '-'}<br/>Kemasan: ${m.package || '-'}${m.pdf ? `<br/><a href="${m.pdf}" target="_blank" style="color:var(--primary-color);text-decoration:none;">PDF</a>` : ''}`;
+          } else {
+            const boreTxt = (typeof m.min_bore_mm === 'number') ? `Bore: ${m.min_bore_mm}–${m.max_bore_mm} mm` : `Max Bore: ${m.max_bore_mm} mm`;
+            const rpmTxt = (typeof m.max_rpm === 'number') ? `Max RPM: ${m.max_rpm}` : '';
+            const tqTxt = (typeof m.max_torque_Nm === 'number') ? `Max Torque: ${m.max_torque_Nm} Nm` : '';
+            const sizeTxt = m.size ? `Size: ${m.size}` : '';
+            specs.innerHTML = `${sizeTxt}${sizeTxt ? '<br/>' : ''}${boreTxt}${rpmTxt ? '<br/>' : ''}${rpmTxt}${tqTxt ? '<br/>' : ''}${tqTxt}${m.pdf ? `<br/><a href="${m.pdf}" target="_blank" style="color:var(--primary-color);text-decoration:none;">PDF</a>` : ''}`;
+          }
+          const actions = document.createElement('div');
+          actions.style.marginTop = '8px';
+          const explainBtn = document.createElement('button');
+          explainBtn.className = 'btn btn-outline';
+          explainBtn.textContent = 'Jelaskan';
+          explainBtn.dataset.type = type;
+          explainBtn.dataset.model = m.model;
+          explainBtn.addEventListener('click', () => {
+            const ctx = window.lastSmartFilterContext || {};
+            const text = buildExplanation(m, ctx);
+            const exp = document.createElement('div');
+            exp.style.marginTop = '6px';
+            exp.style.fontSize = '13px';
+            exp.style.color = '#6c757d';
+            exp.innerHTML = text;
+            card.appendChild(exp);
+          });
+          actions.appendChild(explainBtn);
+          card.appendChild(actions);
+          card.appendChild(name);
+          card.appendChild(specs);
+          if (Array.isArray(m.features) && m.features.length) {
+            const f = document.createElement('div');
+            f.style.fontSize = '12px';
+            f.style.color = '#6c757d';
+            f.style.marginTop = '6px';
+            f.innerHTML = `Fitur: ${m.features.join(', ')}`;
+            card.appendChild(f);
+          }
+          if (Array.isArray(m.applications) && m.applications.length) {
+            const a = document.createElement('div');
+            a.style.fontSize = '12px';
+            a.style.color = '#6c757d';
+            a.style.marginTop = '4px';
+            a.innerHTML = `Aplikasi: ${m.applications.join(', ')}`;
+            card.appendChild(a);
+          }
+          grid.appendChild(card);
+        });
+        section.appendChild(grid);
+        frag.appendChild(section);
+      });
+      container.innerHTML = '';
+      container.appendChild(frag);
+    }
+
+
+    function buildExplanation(m, ctx) {
+      const parts = [];
+      if (ctx && typeof ctx.bore === 'number' && !isNaN(ctx.bore)) {
+        if (typeof m.min_bore_mm === 'number' && typeof m.max_bore_mm === 'number') {
+          const within = ctx.bore >= m.min_bore_mm && ctx.bore <= m.max_bore_mm;
+          parts.push(`Bore ${ctx.bore} mm ${within ? 'masuk' : 'di luar'} rentang ${m.min_bore_mm}–${m.max_bore_mm} mm.`);
+        } else if (typeof m.max_bore_mm === 'number') {
+          const within = ctx.bore <= m.max_bore_mm;
+          parts.push(`Bore ${ctx.bore} mm ${within ? '≤' : '>'} max bore ${m.max_bore_mm} mm.`);
+        }
+      }
+      if (ctx && typeof ctx.rpm === 'number' && !isNaN(ctx.rpm) && typeof m.max_rpm === 'number') {
+        const within = ctx.rpm <= m.max_rpm;
+        parts.push(`RPM ${ctx.rpm} ${within ? '≤' : '>'} batas ${m.max_rpm}.`);
+      }
+      if (ctx && typeof ctx.torque === 'number' && !isNaN(ctx.torque) && typeof m.max_torque_Nm === 'number') {
+        const within = ctx.torque <= m.max_torque_Nm;
+        parts.push(`Torque ${ctx.torque} Nm ${within ? '≤' : '>'} kapasitas ${m.max_torque_Nm} Nm.`);
+      }
+      const base = parts.join(' ');
+      const pdf = m.pdf ? `<br/><a href="${m.pdf}" target="_blank" style="color:var(--primary-color);text-decoration:none;">Rujukan PDF</a>` : '';
+      return base + pdf;
+    }
+
+    function getDocInfo(type) {
+      const data = catalogData && catalogData.documents ? catalogData.documents : fallbackCatalog.documents;
+      if (!data) return null;
+      return data.find(d => d.type === type) || null;
+    }
+
+    
+  </script>
+</body>
+</html>

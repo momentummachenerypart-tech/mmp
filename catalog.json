@@ -1,0 +1,54 @@
+{
+  "tool": {
+    "name": "Smart Selector",
+    "aliases": [
+      "Smart Recommendation Tool",
+      "Coupling Size Selector",
+      "Coupling Recommendation System",
+      "Automatic Coupling Calculator",
+      "Product Matching Tool",
+      "Smart Filter Based on Catalog",
+      "Automatic Bore & RPM Selector"
+    ]
+  },
+  "documents": [
+    {
+      "file": "491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf",
+      "type": "Wrapflex",
+      "title": "491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog"
+    },
+    {
+      "file": "458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf",
+      "type": "Gear",
+      "title": "458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual"
+    },
+    {
+      "file": "CP5-004_productsheet.pdf",
+      "type": "Steelflex",
+      "title": "CP5-004_productsheet"
+    },
+    {
+      "file": "840201_Falk-Long-Term-Grease_WEB (1).pdf",
+      "type": "Grease",
+      "title": "840201_Falk-Long-Term-Grease_WEB (1)"
+    }
+  ],
+  "types": [
+    {
+      "type": "Wrapflex",
+      "models": []
+    },
+    {
+      "type": "Gear",
+      "models": []
+    },
+    {
+      "type": "Steelflex",
+      "models": []
+    },
+    {
+      "type": "Grease",
+      "models": []
+    }
+  ]
+}
