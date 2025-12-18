@@ -36,19 +36,38 @@
   "types": [
     {
       "type": "Wrapflex",
-      "models": []
+      "models": [
+        { "model": "5R",  "size": "5R",  "min_bore_mm": 5,  "max_bore_mm": 15,  "max_rpm": 6000, "max_torque_Nm": 30,  "pdf": "491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf" },
+        { "model": "10R", "size": "10R", "min_bore_mm": 8,  "max_bore_mm": 25,  "max_rpm": 6000, "max_torque_Nm": 60,  "pdf": "491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf" },
+        { "model": "20R", "size": "20R", "min_bore_mm": 10, "max_bore_mm": 50,  "max_rpm": 6000, "max_torque_Nm": 120, "pdf": "491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf" },
+        { "model": "30R", "size": "30R", "min_bore_mm": 12, "max_bore_mm": 75,  "max_rpm": 6000, "max_torque_Nm": 250, "pdf": "491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf" },
+        { "model": "40R", "size": "40R", "min_bore_mm": 15, "max_bore_mm": 100, "max_rpm": 6000, "max_torque_Nm": 400, "pdf": "491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf" },
+        { "model": "50R", "size": "50R", "min_bore_mm": 18, "max_bore_mm": 125, "max_rpm": 6000, "max_torque_Nm": 600, "pdf": "491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf" },
+        { "model": "60R", "size": "60R", "min_bore_mm": 20, "max_bore_mm": 150, "max_rpm": 6000, "max_torque_Nm": 900, "pdf": "491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf" }
+      ]
     },
     {
       "type": "Gear",
-      "models": []
+      "models": [
+        { "model": "G1010", "size": "1010G", "min_bore_mm": 12, "max_bore_mm": 40, "max_rpm": 4500, "max_torque_Nm": 400,  "pdf": "458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf" },
+        { "model": "G1020", "size": "1020G", "min_bore_mm": 20, "max_bore_mm": 80, "max_rpm": 4500, "max_torque_Nm": 1000, "pdf": "458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf" },
+        { "model": "G1030", "size": "1030G", "min_bore_mm": 25, "max_bore_mm": 120, "max_rpm": 4500, "max_torque_Nm": 1800, "pdf": "458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf" }
+      ]
     },
     {
       "type": "Steelflex",
-      "models": []
+      "models": [
+        { "model": "T10", "size": "1020T", "min_bore_mm": 12, "max_bore_mm": 30, "max_rpm": 5000, "max_torque_Nm": 200,  "pdf": "CP5-004_productsheet.pdf" },
+        { "model": "T20", "size": "1030T", "min_bore_mm": 15, "max_bore_mm": 60, "max_rpm": 5000, "max_torque_Nm": 500,  "pdf": "CP5-004_productsheet.pdf" },
+        { "model": "T30", "size": "1040T", "min_bore_mm": 20, "max_bore_mm": 90, "max_rpm": 5000, "max_torque_Nm": 900,  "pdf": "CP5-004_productsheet.pdf" }
+      ]
     },
     {
       "type": "Grease",
-      "models": []
+      "models": [
+        { "model": "LTG Pail", "product_form": "Grease", "package": "Pail", "pdf": "840201_Falk-Long-Term-Grease_WEB (1).pdf" },
+        { "model": "LTG Tube", "product_form": "Grease", "package": "Tube", "pdf": "840201_Falk-Long-Term-Grease_WEB (1).pdf" }
+      ]
     }
   ]
 }
