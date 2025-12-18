@@ -49,17 +49,23 @@
     {
       "type": "Gear",
       "models": [
-        { "model": "G1010", "size": "1010G", "min_bore_mm": 12, "max_bore_mm": 40, "max_rpm": 4500, "max_torque_Nm": 400,  "pdf": "458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf" },
-        { "model": "G1020", "size": "1020G", "min_bore_mm": 20, "max_bore_mm": 80, "max_rpm": 4500, "max_torque_Nm": 1000, "pdf": "458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf" },
-        { "model": "G1030", "size": "1030G", "min_bore_mm": 25, "max_bore_mm": 120, "max_rpm": 4500, "max_torque_Nm": 1800, "pdf": "458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf" }
+        { "model": "G1010", "size": "1010G", "pdf": "458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf" },
+        { "model": "G1020", "size": "1020G", "pdf": "458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf" },
+        { "model": "G1030", "size": "1030G", "pdf": "458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf" },
+        { "model": "G1040", "size": "1040G", "pdf": "458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf" },
+        { "model": "G1050", "size": "1050G", "pdf": "458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf" },
+        { "model": "G1060", "size": "1060G", "pdf": "458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf" },
+        { "model": "G1070", "size": "1070G", "pdf": "458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf" }
       ]
     },
     {
       "type": "Steelflex",
       "models": [
-        { "model": "T10", "size": "1020T", "min_bore_mm": 12, "max_bore_mm": 30, "max_rpm": 5000, "max_torque_Nm": 200,  "pdf": "CP5-004_productsheet.pdf" },
-        { "model": "T20", "size": "1030T", "min_bore_mm": 15, "max_bore_mm": 60, "max_rpm": 5000, "max_torque_Nm": 500,  "pdf": "CP5-004_productsheet.pdf" },
-        { "model": "T30", "size": "1040T", "min_bore_mm": 20, "max_bore_mm": 90, "max_rpm": 5000, "max_torque_Nm": 900,  "pdf": "CP5-004_productsheet.pdf" }
+        { "model": "T10", "size": "1020T", "pdf": "CP5-004_productsheet.pdf" },
+        { "model": "T20", "size": "1030T", "pdf": "CP5-004_productsheet.pdf" },
+        { "model": "T30", "size": "1040T", "pdf": "CP5-004_productsheet.pdf" },
+        { "model": "T40", "size": "1050T", "pdf": "CP5-004_productsheet.pdf" },
+        { "model": "T50", "size": "1060T", "pdf": "CP5-004_productsheet.pdf" }
       ]
     },
     {
