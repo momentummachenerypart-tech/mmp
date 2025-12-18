@@ -842,7 +842,20 @@
             matches.push({ type: t.type, model: m.model, product_form: m.product_form, package: m.package, pdf: m.pdf });
             return;
           }
-          const boreOk = isNaN(bore) ? true : (typeof m.min_bore_mm === 'number' ? (bore >= m.min_bore_mm && bore <= m.max_bore_mm) : (bore <= m.max_bore_mm));
+          let boreOk = true;
+          if (!isNaN(bore)) {
+            const hasMin = typeof m.min_bore_mm === 'number';
+            const hasMax = typeof m.max_bore_mm === 'number';
+            if (hasMin && hasMax) {
+              boreOk = bore >= m.min_bore_mm && bore <= m.max_bore_mm;
+            } else if (hasMin && !hasMax) {
+              boreOk = bore >= m.min_bore_mm;
+            } else if (!hasMin && hasMax) {
+              boreOk = bore <= m.max_bore_mm;
+            } else {
+              boreOk = true;
+            }
+          }
           const rpmOk = isNaN(rpm) ? true : (typeof m.max_rpm === 'number' ? rpm <= m.max_rpm : true);
           const torqueOk = torque === null || isNaN(torque) ? true : (typeof m.max_torque_Nm === 'number' ? torque <= m.max_torque_Nm : true);
           if (boreOk && rpmOk && torqueOk) {
@@ -967,12 +980,14 @@
       const types = (catalogData && catalogData.types ? catalogData.types : fallbackCatalog.types).filter(t => allowed.includes(t.type));
       const selected = type ? types.filter(t => t.type === type) : types;
       const matches = [];
+      function norm(s) { return (s || '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
       selected.forEach(t => {
         t.models.forEach(m => {
           let textOk = true;
           if (q) {
-            const base = `${t.type} ${m.model} ${m.size || ''}`.toLowerCase();
-            textOk = base.includes(q);
+            const base = norm(`${t.type} ${m.model} ${m.size || ''}`);
+            const query = norm(q);
+            textOk = base.includes(query);
           }
           if (t.type === 'Grease') {
             if (textOk) {
@@ -980,7 +995,20 @@
             }
             return;
           }
-          const boreOk = isNaN(bore) ? true : (typeof m.min_bore_mm === 'number' ? (bore >= m.min_bore_mm && bore <= m.max_bore_mm) : (bore <= m.max_bore_mm));
+          let boreOk = true;
+          if (!isNaN(bore)) {
+            const hasMin = typeof m.min_bore_mm === 'number';
+            const hasMax = typeof m.max_bore_mm === 'number';
+            if (hasMin && hasMax) {
+              boreOk = bore >= m.min_bore_mm && bore <= m.max_bore_mm;
+            } else if (hasMin && !hasMax) {
+              boreOk = bore >= m.min_bore_mm;
+            } else if (!hasMin && hasMax) {
+              boreOk = bore <= m.max_bore_mm;
+            } else {
+              boreOk = true;
+            }
+          }
           const rpmOk = isNaN(rpm) ? true : (typeof m.max_rpm === 'number' ? rpm <= m.max_rpm : true);
           const torqueOk = torque === null || isNaN(torque) ? true : (typeof m.max_torque_Nm === 'number' ? torque <= m.max_torque_Nm : true);
           if (textOk && boreOk && rpmOk && torqueOk) {
