@@ -1,0 +1,2836 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katalog Produk - Momentum Machinery Part</title>
+  <link rel="icon" href="momentum.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #142b4f;
+      --secondary-color: #b8860b;
+      --accent-color: #f7f1e3;
+      --text-color: #0f223a;
+      --light-color: #fbfbfb;
+      --border-color: #e6dfd2;
+      --shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.12);
+      --transition: all 0.25s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: #f5f2eb;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo img {
+      height: 50px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .logo img:hover {
+      transform: scale(1.05);
+    }
+
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: var(--primary-color);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 600;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--secondary-color);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, rgba(20, 43, 79, 0.92), rgba(20, 43, 79, 0.78)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero h2 {
+      font-size: 2.2rem;
+      color: white;
+      margin-bottom: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .hero p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 600px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    /* Main Content */
+    main {
+      padding: 40px 0;
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 30%, #ffffff 70%, #f1f5f9 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    main::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 80%, rgba(20, 43, 79, 0.03) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(184, 134, 11, 0.03) 0%, transparent 50%),
+                  radial-gradient(circle at 40% 40%, rgba(20, 43, 79, 0.02) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0f223a;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 15px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #b8860b 0%, #d4af37 50%, #b8860b 100%);
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: #64748b;
+      max-width: 600px;
+      margin: 10px auto 0;
+      font-weight: 400;
+    }
+
+    /* Selector Section */
+    #selectorSection {
+      background: #ffffff;
+      border: 1px solid rgba(20, 43, 79, 0.06);
+      box-shadow: 0 6px 24px rgba(20, 43, 79, 0.08), 0 2px 8px rgba(20, 43, 79, 0.04);
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    #selectorSection h3 {
+      color: #0f223a;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    #selectorSection p {
+      color: #64748b;
+      margin-bottom: 25px;
+      text-align: center;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    #selectorTitle {
+      color: #0f223a;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      text-align: center;
+    }
+
+    #selectorAliases {
+      color: #64748b;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #0f223a;
+      font-size: 0.95rem;
+    }
+
+    .form-select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid rgba(20, 43, 79, 0.1);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      background: #ffffff;
+      color: #0f223a;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 2px 8px rgba(20, 43, 79, 0.04);
+    }
+
+    .form-select:focus {
+      outline: none;
+      border-color: #142b4f;
+      box-shadow: 0 0 0 3px rgba(20, 43, 79, 0.1);
+    }
+
+    .form-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: #142b4f;
+      color: white;
+      box-shadow: 0 4px 12px rgba(20, 43, 79, 0.15);
+    }
+
+    .btn-primary:hover {
+      background: #0f223a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(20, 43, 79, 0.25);
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: #142b4f;
+      border: 1px solid rgba(20, 43, 79, 0.1);
+      box-shadow: 0 4px 12px rgba(20, 43, 79, 0.08);
+    }
+
+    .btn-secondary:hover {
+      background: #f8fafc;
+      border-color: #142b4f;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(20, 43, 79, 0.12);
+    }
+
+    .result-section {
+      margin-bottom: 12px;
+    }
+
+    /* Results Section */
+    #selectorResults {
+      margin-top: 10px;
+    }
+
+    .result-title {
+      color: var(--primary-color);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    /* Results Header */
+    .results-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(20, 43, 79, 0.06);
+    }
+
+    .results-info {
+      font-size: 1rem;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .results-info span {
+      color: #142b4f;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .view-options {
+      display: flex;
+      gap: 10px;
+    }
+
+    .view-btn {
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(20, 43, 79, 0.1);
+      background: #ffffff;
+      color: #64748b;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .view-btn:hover {
+      border-color: #142b4f;
+      color: #142b4f;
+      background: #f8fafc;
+    }
+
+    .view-btn.active {
+      background: #142b4f;
+      color: white;
+      border-color: #142b4f;
+    }
+
+    /* Enhanced Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+      min-height: 400px;
+    }
+
+    .product-grid.list-view {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .product-card {
+      background: #ffffff;
+      border: 1px solid rgba(20, 43, 79, 0.06);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 6px 24px rgba(20, 43, 79, 0.08), 0 2px 8px rgba(20, 43, 79, 0.04);
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-grid.list-view .product-card {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      padding: 20px 24px;
+    }
+
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #142b4f 0%, #3b82f6 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .product-card:hover::before {
+      opacity: 1;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(20, 43, 79, 0.12), 0 8px 24px rgba(20, 43, 79, 0.08);
+      border-color: rgba(20, 43, 79, 0.12);
+    }
+
+    .product-grid.list-view .product-card:hover {
+      transform: translateX(8px);
+    }
+
+    .product-header {
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(20, 43, 79, 0.06);
+    }
+
+    .product-grid.list-view .product-header {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+      flex: 0 0 200px;
+    }
+
+    .product-title {
+      color: #0f223a;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .product-subtitle {
+      color: #64748b;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .product-specs {
+      margin-bottom: 20px;
+    }
+
+    .product-grid.list-view .product-specs {
+      margin-bottom: 0;
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(20, 43, 79, 0.04);
+      font-size: 0.9rem;
+    }
+
+    .product-grid.list-view .spec-item {
+      border-bottom: none;
+      padding: 4px 0;
+    }
+
+    .spec-item:last-child {
+      border-bottom: none;
+    }
+
+    .spec-label {
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .spec-value {
+      color: #0f223a;
+      font-weight: 600;
+    }
+
+    .product-features {
+      margin-bottom: 20px;
+    }
+
+    .product-grid.list-view .product-features {
+      display: none;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .feature-item {
+      padding: 6px 0;
+      color: #64748b;
+      font-size: 0.85rem;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .feature-item::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #b8860b;
+      font-weight: bold;
+    }
+
+    .product-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #142b4f;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 4px 12px rgba(20, 43, 79, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-link i {
+      font-size: 0.9rem;
+    }
+
+    /* Gear Type Badge */
+    .gear-type-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #142b4f 0%, #3b82f6 100%);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 8px;
+      box-shadow: 0 2px 8px rgba(20, 43, 79, 0.2);
+    }
+
+    .product-grid.list-view .gear-type-badge {
+      margin-top: 4px;
+    }
+
+    /* Flex Type Badge */
+    .flex-type-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #b8860b 0%, #d4af37 100%);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 8px;
+      margin-left: 8px;
+      box-shadow: 0 2px 8px rgba(184, 134, 11, 0.2);
+    }
+
+    .product-grid.list-view .flex-type-badge {
+      margin-top: 4px;
+      margin-left: 6px;
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .pagination-btn {
+      min-width: 40px;
+      height: 40px;
+      border: 1px solid rgba(20, 43, 79, 0.1);
+      background: #ffffff;
+      color: #64748b;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .pagination-btn:hover:not(:disabled) {
+      border-color: #142b4f;
+      color: #142b4f;
+      background: #f8fafc;
+    }
+
+    .pagination-btn.active {
+      background: #142b4f;
+      color: white;
+      border-color: #142b4f;
+    }
+
+    .pagination-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .pagination-info {
+      color: #64748b;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* Loading State */
+    .loading {
+      text-align: center;
+      padding: 60px 20px;
+      color: #64748b;
+    }
+
+    .loading i {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #142b4f;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* No Results */
+    .no-results {
+      text-align: center;
+      padding: 20px;
+      color: #6c757d;
+    }
+
+    /* Status Info */
+    .status-info {
+      background: #e7f3ff;
+      border: 1px solid #b3d9ff;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 12px;
+      color: #0066cc;
+    }
+
+    /* Responsive Design */
+    
+    /* Extra Large Devices (1200px and up) */
+    @media (min-width: 1200px) {
+      .container {
+        max-width: 1140px;
+      }
+      
+      .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 30px;
+      }
+      
+      .hero h2 {
+        font-size: 2.8rem;
+      }
+      
+      .hero p {
+        font-size: 1.3rem;
+        max-width: 700px;
+      }
+    }
+
+    /* Large Devices (992px to 1199px) */
+    @media (max-width: 1199px) and (min-width: 992px) {
+      .container {
+        max-width: 960px;
+      }
+      
+      .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 25px;
+      }
+      
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+    }
+
+    /* Medium Devices (768px to 991px) - Tablets */
+    @media (max-width: 991px) and (min-width: 768px) {
+      .container {
+        max-width: 720px;
+        padding: 0 20px;
+      }
+      
+      .hero {
+        min-height: 40vh;
+        padding: 60px 0;
+      }
+      
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 20px;
+      }
+      
+      .product-card {
+        padding: 20px;
+      }
+      
+      .product-title {
+        font-size: 1.2rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .form-buttons {
+        flex-direction: row;
+        gap: 15px;
+      }
+      
+      .btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+      }
+      
+      .gear-type-badge,
+      .flex-type-badge {
+        font-size: 0.7rem;
+        padding: 3px 10px;
+      }
+    }
+
+    /* Small Devices (576px to 767px) - Large Phones */
+    @media (max-width: 767px) and (min-width: 576px) {
+      .container {
+        max-width: 540px;
+        padding: 0 15px;
+      }
+      
+      header {
+        padding: 15px 0;
+      }
+      
+      .logo img {
+        width: 40px;
+        height: 40px;
+      }
+      
+      .logo h1 {
+        font-size: 1.2rem;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .hero {
+        min-height: 35vh;
+        padding: 50px 0;
+      }
+      
+      .hero h2 {
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+        padding: 0 20px;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .section-subtitle {
+        font-size: 1rem;
+      }
+      
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      
+      .product-card {
+        padding: 18px;
+      }
+      
+      .product-title {
+        font-size: 1.1rem;
+      }
+      
+      .product-subtitle {
+        font-size: 0.9rem;
+      }
+      
+      .spec-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        padding: 6px 0;
+      }
+      
+      .spec-label {
+        font-weight: 600;
+        color: #142b4f;
+      }
+      
+      .form-buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .btn {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 0.95rem;
+      }
+      
+      .pagination {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      
+      .pagination-btn {
+        min-width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+      }
+      
+      .gear-type-badge,
+      .flex-type-badge {
+        font-size: 0.65rem;
+        padding: 2px 8px;
+        margin-top: 6px;
+      }
+      
+      .results-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+      }
+      
+      .view-options {
+        justify-content: center;
+      }
+    }
+
+    /* Extra Small Devices (575px and down) - Small Phones */
+    @media (max-width: 575px) {
+      .container {
+        max-width: 100%;
+        padding: 0 12px;
+      }
+      
+      header {
+        padding: 12px 0;
+      }
+      
+      .logo {
+        gap: 8px;
+      }
+      
+      .logo img {
+        width: 35px;
+        height: 35px;
+      }
+      
+      .logo h1 {
+        font-size: 1rem;
+        line-height: 1.2;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .hero {
+        min-height: 30vh;
+        padding: 40px 0;
+      }
+      
+      .hero h2 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        margin-bottom: 12px;
+      }
+      
+      .hero p {
+        font-size: 0.95rem;
+        padding: 0 15px;
+        line-height: 1.4;
+      }
+      
+      main {
+        padding: 30px 0;
+      }
+      
+      .section-title {
+        font-size: 1.6rem;
+        line-height: 1.2;
+      }
+      
+      .section-subtitle {
+        font-size: 0.95rem;
+        line-height: 1.4;
+      }
+      
+      #selectorSection {
+        padding: 20px;
+        margin-bottom: 25px;
+      }
+      
+      #selectorTitle {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+      }
+      
+      .form-group {
+        margin-bottom: 18px;
+      }
+      
+      .form-label {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+      }
+      
+      .form-select {
+        padding: 12px;
+        font-size: 0.9rem;
+      }
+      
+      .form-buttons {
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .btn {
+        width: 100%;
+        padding: 14px 18px;
+        font-size: 0.9rem;
+      }
+      
+      .btn i {
+        margin-right: 8px;
+      }
+      
+      .results-header {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+        padding: 15px 0;
+      }
+      
+      .results-info {
+        text-align: center;
+        font-size: 0.9rem;
+      }
+      
+      .view-options {
+        justify-content: center;
+        gap: 8px;
+      }
+      
+      .view-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+      }
+      
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      
+      .product-card {
+        padding: 15px;
+        border-radius: 12px;
+      }
+      
+      .product-header {
+        margin-bottom: 15px;
+        padding-bottom: 12px;
+      }
+      
+      .product-title {
+        font-size: 1.1rem;
+        line-height: 1.2;
+        margin-bottom: 6px;
+      }
+      
+      .product-subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+      }
+      
+      .gear-type-badge,
+      .flex-type-badge {
+        font-size: 0.6rem;
+        padding: 2px 6px;
+        margin-top: 4px;
+        margin-left: 4px;
+      }
+      
+      .product-specs {
+        margin-bottom: 15px;
+      }
+      
+      .spec-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
+        padding: 5px 0;
+        font-size: 0.85rem;
+      }
+      
+      .spec-label {
+        font-weight: 600;
+        color: #142b4f;
+        font-size: 0.8rem;
+      }
+      
+      .spec-value {
+        font-size: 0.85rem;
+      }
+      
+      .product-features {
+        margin-bottom: 15px;
+      }
+      
+      .feature-item {
+        padding: 4px 0;
+        font-size: 0.8rem;
+        line-height: 1.3;
+      }
+      
+      .product-link {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 16px;
+        font-size: 0.85rem;
+      }
+      
+      .product-grid.list-view .product-card {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+      }
+      
+      .product-grid.list-view .product-header {
+        flex: none;
+        text-align: center;
+      }
+      
+      .product-grid.list-view .product-specs {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      
+      .pagination {
+        margin-top: 25px;
+        gap: 6px;
+      }
+      
+      .pagination-btn {
+        min-width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+      }
+      
+      .pagination-info {
+        font-size: 0.8rem;
+        text-align: center;
+        width: 100%;
+      }
+      
+      .loading {
+        padding: 40px 15px;
+      }
+      
+      .loading i {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+      }
+      
+      .no-results {
+        padding: 40px 15px;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Landscape Orientation for Mobile */
+    @media (max-width: 767px) and (orientation: landscape) {
+      .hero {
+        min-height: 25vh;
+        padding: 30px 0;
+      }
+      
+      .hero h2 {
+        font-size: 1.6rem;
+      }
+      
+      .hero p {
+        font-size: 0.9rem;
+      }
+      
+      main {
+        padding: 20px 0;
+      }
+      
+      .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 15px;
+      }
+    }
+
+    /* High DPI Displays */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .logo img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <img src="momentum.png" alt="Momentum Machinery Part Logo">
+          <h1>Momentum Machinery Part</h1>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="about.html">Tentang Kami</a></li>
+          <li><a href="products.html">Katalog Produk</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h2>Katalog Produk</h2>
+        <p>Pilih tipe coupling untuk menampilkan semua produk yang tersedia</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Katalog Produk Falk Rexnord</h2>
+        <p class="section-subtitle">
+          Pilih tipe coupling untuk menampilkan semua produk yang tersedia
+        </p>
+      </div>
+
+      <!-- Status Info -->
+      <div class="status-info" id="statusInfo">
+        Status: Loading products...
+      </div>
+
+      <!-- Selector Section -->
+      <div id="selectorSection">
+        <h3 id="selectorTitle">Coupling Selector Otomatis</h3>
+        <p id="selectorAliases"></p>
+        <p>Pilih tipe coupling untuk menampilkan semua produk yang tersedia.</p>
+        
+        <div class="form-group">
+          <label for="typeSelect" class="form-label">Tipe Coupling</label>
+          <select id="typeSelect" class="form-select" onchange="filterProducts()">
+            <option value="">Semua</option>
+            <option value="Wrapflex Couplings">Wrapflex Couplings</option>
+            <option value="Gear Couplings">Gear Couplings</option>
+            <option value="Steelflex Couplings">Steelflex Couplings</option>
+            <option value="T10 Grid Couplings">T10 Grid Couplings</option>
+            <option value="T20 Disc Couplings">T20 Disc Couplings</option>
+            <option value="Long-Term Grease">Long-Term Grease</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="searchInput" class="form-label">Cari Produk</label>
+          <input type="text" id="searchInput" class="form-select" placeholder="Cari berdasarkan model, ukuran, atau spesifikasi..." oninput="searchProducts()">
+        </div>
+
+        <div class="form-buttons">
+          <button class="btn btn-primary" onclick="filterProducts()">
+            <i class="fas fa-search"></i>
+            Cari Produk
+          </button>
+          <button class="btn btn-secondary" onclick="resetFilters()">
+            <i class="fas fa-redo"></i>
+            Reset
+          </button>
+        </div>
+      </div>
+
+      <!-- Results Section -->
+      <div id="selectorResults">
+        <div class="results-header">
+          <div class="results-info">
+            <span id="resultCount">0</span> produk ditemukan
+          </div>
+          <div class="view-options">
+            <button class="view-btn active" onclick="setViewMode('grid')" title="Grid View">
+              <i class="fas fa-th"></i>
+            </button>
+            <button class="view-btn" onclick="setViewMode('list')" title="List View">
+              <i class="fas fa-list"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="product-grid" id="productGrid">
+          <!-- Products will be displayed here -->
+        </div>
+        
+        <!-- Pagination -->
+        <div class="pagination" id="pagination">
+          <!-- Pagination buttons will be displayed here -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Complete inline product data - no external files needed
+    const productData = [
+      // Wrapflex Couplings
+      {
+        type: "Wrapflex Couplings",
+        model: "5R",
+        size: "5R",
+        boreRange: "5-15 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 62.14,
+        dimensions: { diameter: "50 mm", length: "87 mm" },
+        pdf: "assets/pdfs/491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf",
+        features: ["One-piece elastomer element", "No lubrication required", "Vibration damping"],
+        applications: ["Pumps", "Compressors", "Fans"]
+      },
+      {
+        type: "Wrapflex Couplings",
+        model: "10R",
+        size: "10R",
+        boreRange: "8-25 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 129.93,
+        dimensions: { diameter: "65 mm", length: "102 mm" },
+        pdf: "assets/pdfs/491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf",
+        features: ["One-piece elastomer element", "No lubrication required", "Vibration damping"],
+        applications: ["Pumps", "Compressors", "Fans"]
+      },
+      {
+        type: "Wrapflex Couplings",
+        model: "15R",
+        size: "15R",
+        boreRange: "10-35 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 311.9,
+        dimensions: { diameter: "80 mm", length: "118 mm" },
+        pdf: "assets/pdfs/491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf",
+        features: ["One-piece elastomer element", "No lubrication required", "Vibration damping"],
+        applications: ["Pumps", "Compressors", "Fans"]
+      },
+      {
+        type: "Wrapflex Couplings",
+        model: "20R",
+        size: "20R",
+        boreRange: "10-50 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 316.36,
+        dimensions: { diameter: "85 mm", length: "125 mm" },
+        pdf: "assets/pdfs/491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf",
+        features: ["One-piece elastomer element", "No lubrication required", "Vibration damping"],
+        applications: ["Pumps", "Compressors", "Fans"]
+      },
+      {
+        type: "Wrapflex Couplings",
+        model: "30R",
+        size: "30R",
+        boreRange: "12-75 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 528.77,
+        dimensions: { diameter: "105 mm", length: "145 mm" },
+        pdf: "assets/pdfs/491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf",
+        features: ["One-piece elastomer element", "No lubrication required", "Vibration damping"],
+        applications: ["Pumps", "Compressors", "Fans"]
+      },
+      {
+        type: "Wrapflex Couplings",
+        model: "40R",
+        size: "40R",
+        boreRange: "15-100 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 1032.68,
+        dimensions: { diameter: "125 mm", length: "165 mm" },
+        pdf: "assets/pdfs/491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf",
+        features: ["One-piece elastomer element", "No lubrication required", "Vibration damping"],
+        applications: ["Pumps", "Compressors", "Fans"]
+      },
+      {
+        type: "Wrapflex Couplings",
+        model: "50R",
+        size: "50R",
+        boreRange: "18-125 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 2508.26,
+        dimensions: { diameter: "145 mm", length: "195 mm" },
+        pdf: "assets/pdfs/491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf",
+        features: ["One-piece elastomer element", "No lubrication required", "Vibration damping"],
+        applications: ["Pumps", "Compressors", "Fans"]
+      },
+      {
+        type: "Wrapflex Couplings",
+        model: "60R",
+        size: "60R",
+        boreRange: "20-150 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 4010.96,
+        dimensions: { diameter: "165 mm", length: "225 mm" },
+        pdf: "assets/pdfs/491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf",
+        features: ["One-piece elastomer element", "No lubrication required", "Vibration damping"],
+        applications: ["Pumps", "Compressors", "Fans"]
+      },
+      {
+        type: "Wrapflex Couplings",
+        model: "70R",
+        size: "70R",
+        boreRange: "25-175 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 8010.62,
+        dimensions: { diameter: "185 mm", length: "255 mm" },
+        pdf: "assets/pdfs/491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf",
+        features: ["One-piece elastomer element", "No lubrication required", "Vibration damping"],
+        applications: ["Pumps", "Compressors", "Fans"]
+      },
+      {
+        type: "Wrapflex Couplings",
+        model: "80R",
+        size: "80R",
+        boreRange: "30-200 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 15026.98,
+        dimensions: { diameter: "205 mm", length: "285 mm" },
+        pdf: "assets/pdfs/491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf",
+        features: ["One-piece elastomer element", "No lubrication required", "Vibration damping"],
+        applications: ["Pumps", "Compressors", "Fans"]
+      },
+      
+      // Gear Couplings - Falk Lifelign Type G10 (Based on Catalog Data)
+      {
+        type: "Gear Couplings",
+        model: "1010G",
+        size: "1010G",
+        boreRange: "12-40 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 400,
+        dimensions: { diameter: "80 mm", length: "110 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["High torque capacity", "Lubricated design", "Precision ground gears"],
+        applications: ["Steel mills", "Mining equipment", "Heavy machinery"],
+        gearType: "G10"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1015G",
+        size: "1015G",
+        boreRange: "15-50 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 600,
+        dimensions: { diameter: "95 mm", length: "125 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["High torque capacity", "Lubricated design", "Precision ground gears"],
+        applications: ["Steel mills", "Mining equipment", "Heavy machinery"],
+        gearType: "G10"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1020G",
+        size: "1020G",
+        boreRange: "20-80 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 1000,
+        dimensions: { diameter: "110 mm", length: "140 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["High torque capacity", "Lubricated design", "Precision ground gears"],
+        applications: ["Steel mills", "Mining equipment", "Heavy machinery"],
+        gearType: "G10"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1025G",
+        size: "1025G",
+        boreRange: "22-90 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 1500,
+        dimensions: { diameter: "125 mm", length: "155 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["High torque capacity", "Lubricated design", "Precision ground gears"],
+        applications: ["Steel mills", "Mining equipment", "Heavy machinery"],
+        gearType: "G10"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1030G",
+        size: "1030G",
+        boreRange: "25-120 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 2000,
+        dimensions: { diameter: "140 mm", length: "170 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["High torque capacity", "Lubricated design", "Precision ground gears"],
+        applications: ["Steel mills", "Mining equipment", "Heavy machinery"],
+        gearType: "G10"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1035G",
+        size: "1035G",
+        boreRange: "28-135 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 3000,
+        dimensions: { diameter: "155 mm", length: "185 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["High torque capacity", "Lubricated design", "Precision ground gears"],
+        applications: ["Steel mills", "Mining equipment", "Heavy machinery"],
+        gearType: "G10"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1040G",
+        size: "1040G",
+        boreRange: "30-150 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 4000,
+        dimensions: { diameter: "170 mm", length: "200 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["High torque capacity", "Lubricated design", "Precision ground gears"],
+        applications: ["Steel mills", "Mining equipment", "Heavy machinery"],
+        gearType: "G10"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1045G",
+        size: "1045G",
+        boreRange: "32-165 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 6000,
+        dimensions: { diameter: "185 mm", length: "215 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["High torque capacity", "Lubricated design", "Precision ground gears"],
+        applications: ["Steel mills", "Mining equipment", "Heavy machinery"],
+        gearType: "G10"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1050G",
+        size: "1050G",
+        boreRange: "35-180 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 8000,
+        dimensions: { diameter: "200 mm", length: "230 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["High torque capacity", "Lubricated design", "Precision ground gears"],
+        applications: ["Steel mills", "Mining equipment", "Heavy machinery"],
+        gearType: "G10"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1055G",
+        size: "1055G",
+        boreRange: "38-195 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 12000,
+        dimensions: { diameter: "215 mm", length: "245 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["High torque capacity", "Lubricated design", "Precision ground gears"],
+        applications: ["Steel mills", "Mining equipment", "Heavy machinery"],
+        gearType: "G10"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1060G",
+        size: "1060G",
+        boreRange: "40-210 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 15000,
+        dimensions: { diameter: "230 mm", length: "260 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["High torque capacity", "Lubricated design", "Precision ground gears"],
+        applications: ["Steel mills", "Mining equipment", "Heavy machinery"],
+        gearType: "G10"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1070G",
+        size: "1070G",
+        boreRange: "45-240 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 25000,
+        dimensions: { diameter: "260 mm", length: "290 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["High torque capacity", "Lubricated design", "Precision ground gears"],
+        applications: ["Steel mills", "Mining equipment", "Heavy machinery"],
+        gearType: "G10"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1080G",
+        size: "1080G",
+        boreRange: "50-280 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 40000,
+        dimensions: { diameter: "290 mm", length: "320 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["High torque capacity", "Lubricated design", "Precision ground gears"],
+        applications: ["Steel mills", "Mining equipment", "Heavy machinery"],
+        gearType: "G10"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1100G",
+        size: "1100G",
+        boreRange: "60-320 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 65000,
+        dimensions: { diameter: "320 mm", length: "350 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["High torque capacity", "Lubricated design", "Precision ground gears"],
+        applications: ["Steel mills", "Mining equipment", "Heavy machinery"],
+        gearType: "G10"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1120G",
+        size: "1120G",
+        boreRange: "70-360 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 100000,
+        dimensions: { diameter: "360 mm", length: "390 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["High torque capacity", "Lubricated design", "Precision ground gears"],
+        applications: ["Steel mills", "Mining equipment", "Heavy machinery"],
+        gearType: "G10"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1140G",
+        size: "1140G",
+        boreRange: "80-400 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 150000,
+        dimensions: { diameter: "400 mm", length: "430 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["High torque capacity", "Lubricated design", "Precision ground gears"],
+        applications: ["Steel mills", "Mining equipment", "Heavy machinery"],
+        gearType: "G10"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1150G",
+        size: "1150G",
+        boreRange: "90-450 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 200000,
+        dimensions: { diameter: "430 mm", length: "460 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["High torque capacity", "Lubricated design", "Precision ground gears"],
+        applications: ["Steel mills", "Mining equipment", "Heavy machinery"],
+        gearType: "G10"
+      },
+
+      // Gear Couplings - Falk Lifelign Type G20 (Heavy Duty Series)
+      {
+        type: "Gear Couplings",
+        model: "1010G20",
+        size: "1010G20",
+        boreRange: "12-40 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 600,
+        dimensions: { diameter: "85 mm", length: "115 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["Heavy duty design", "Higher RPM capacity", "Enhanced torque rating", "Industrial grade materials"],
+        applications: ["High-speed machinery", "Precision equipment", "Industrial automation"],
+        gearType: "G20"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1020G20",
+        size: "1020G20",
+        boreRange: "20-80 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 1500,
+        dimensions: { diameter: "115 mm", length: "145 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["Heavy duty design", "Higher RPM capacity", "Enhanced torque rating", "Industrial grade materials"],
+        applications: ["High-speed machinery", "Precision equipment", "Industrial automation"],
+        gearType: "G20"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1030G20",
+        size: "1030G20",
+        boreRange: "25-120 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 3000,
+        dimensions: { diameter: "145 mm", length: "175 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["Heavy duty design", "Higher RPM capacity", "Enhanced torque rating", "Industrial grade materials"],
+        applications: ["High-speed machinery", "Precision equipment", "Industrial automation"],
+        gearType: "G20"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1040G20",
+        size: "1040G20",
+        boreRange: "30-150 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 6000,
+        dimensions: { diameter: "175 mm", length: "205 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["Heavy duty design", "Higher RPM capacity", "Enhanced torque rating", "Industrial grade materials"],
+        applications: ["High-speed machinery", "Precision equipment", "Industrial automation"],
+        gearType: "G20"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1050G20",
+        size: "1050G20",
+        boreRange: "35-180 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 12000,
+        dimensions: { diameter: "205 mm", length: "235 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["Heavy duty design", "Higher RPM capacity", "Enhanced torque rating", "Industrial grade materials"],
+        applications: ["High-speed machinery", "Precision equipment", "Industrial automation"],
+        gearType: "G20"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1060G20",
+        size: "1060G20",
+        boreRange: "40-210 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 22000,
+        dimensions: { diameter: "235 mm", length: "265 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["Heavy duty design", "Higher RPM capacity", "Enhanced torque rating", "Industrial grade materials"],
+        applications: ["High-speed machinery", "Precision equipment", "Industrial automation"],
+        gearType: "G20"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1070G20",
+        size: "1070G20",
+        boreRange: "45-240 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 35000,
+        dimensions: { diameter: "265 mm", length: "295 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["Heavy duty design", "Higher RPM capacity", "Enhanced torque rating", "Industrial grade materials"],
+        applications: ["High-speed machinery", "Precision equipment", "Industrial automation"],
+        gearType: "G20"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1080G20",
+        size: "1080G20",
+        boreRange: "50-280 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 55000,
+        dimensions: { diameter: "295 mm", length: "325 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["Heavy duty design", "Higher RPM capacity", "Enhanced torque rating", "Industrial grade materials"],
+        applications: ["High-speed machinery", "Precision equipment", "Industrial automation"],
+        gearType: "G20"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1100G20",
+        size: "1100G20",
+        boreRange: "60-320 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 85000,
+        dimensions: { diameter: "325 mm", length: "355 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["Heavy duty design", "Higher RPM capacity", "Enhanced torque rating", "Industrial grade materials"],
+        applications: ["High-speed machinery", "Precision equipment", "Industrial automation"],
+        gearType: "G20"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1120G20",
+        size: "1120G20",
+        boreRange: "70-360 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 130000,
+        dimensions: { diameter: "365 mm", length: "395 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["Heavy duty design", "Higher RPM capacity", "Enhanced torque rating", "Industrial grade materials"],
+        applications: ["High-speed machinery", "Precision equipment", "Industrial automation"],
+        gearType: "G20"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1140G20",
+        size: "1140G20",
+        boreRange: "80-400 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 190000,
+        dimensions: { diameter: "405 mm", length: "435 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["Heavy duty design", "Higher RPM capacity", "Enhanced torque rating", "Industrial grade materials"],
+        applications: ["High-speed machinery", "Precision equipment", "Industrial automation"],
+        gearType: "G20"
+      },
+      {
+        type: "Gear Couplings",
+        model: "1150G20",
+        size: "1150G20",
+        boreRange: "90-450 mm",
+        maxRPM: 6000,
+        maxTorqueNm: 250000,
+        dimensions: { diameter: "435 mm", length: "465 mm" },
+        pdf: "assets/pdfs/451-110_Falk-Lifelign-Gear-Couplings_Catalog.pdf",
+        features: ["Heavy duty design", "Higher RPM capacity", "Enhanced torque rating", "Industrial grade materials"],
+        applications: ["High-speed machinery", "Precision equipment", "Industrial automation"],
+        gearType: "G20"
+      },
+      
+      // Steelflex Couplings - Falk Steelflex Grid Couplings Type T10 (Based on MCC-421-110-FK-EN-US-Web.pdf)
+      {
+        type: "Steelflex Couplings",
+        model: "1020T",
+        size: "1020T",
+        boreRange: "12-30 mm",
+        maxRPM: 5700,
+        maxTorqueNm: 244,
+        dimensions: { diameter: "50 mm", length: "87 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Steel grid element", "Zero backlash", "Maintenance-free design", "High torque capacity"],
+        applications: ["Industrial drives", "Precision machinery", "High-speed applications", "Pumps and compressors"],
+        flexType: "T10"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1030T",
+        size: "1030T",
+        boreRange: "15-60 mm",
+        maxRPM: 5100,
+        maxTorqueNm: 813,
+        dimensions: { diameter: "65 mm", length: "102 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Steel grid element", "Zero backlash", "Maintenance-free design", "High torque capacity"],
+        applications: ["Industrial drives", "Precision machinery", "High-speed applications", "Pumps and compressors"],
+        flexType: "T10"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1040T",
+        size: "1040T",
+        boreRange: "20-90 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 1626,
+        dimensions: { diameter: "85 mm", length: "125 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Steel grid element", "Zero backlash", "Maintenance-free design", "High torque capacity"],
+        applications: ["Industrial drives", "Precision machinery", "High-speed applications", "Pumps and compressors"],
+        flexType: "T10"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1050T",
+        size: "1050T",
+        boreRange: "25-120 mm",
+        maxRPM: 4100,
+        maxTorqueNm: 2711,
+        dimensions: { diameter: "105 mm", length: "145 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Steel grid element", "Zero backlash", "Maintenance-free design", "High torque capacity"],
+        applications: ["Industrial drives", "Precision machinery", "High-speed applications", "Pumps and compressors"],
+        flexType: "T10"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1060T",
+        size: "1060T",
+        boreRange: "30-150 mm",
+        maxRPM: 3700,
+        maxTorqueNm: 4067,
+        dimensions: { diameter: "125 mm", length: "165 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Steel grid element", "Zero backlash", "Maintenance-free design", "High torque capacity"],
+        applications: ["Industrial drives", "Precision machinery", "High-speed applications", "Pumps and compressors"],
+        flexType: "T10"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1070T",
+        size: "1070T",
+        boreRange: "35-175 mm",
+        maxRPM: 3300,
+        maxTorqueNm: 5422,
+        dimensions: { diameter: "145 mm", length: "185 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Steel grid element", "Zero backlash", "Maintenance-free design", "High torque capacity"],
+        applications: ["Industrial drives", "Precision machinery", "High-speed applications", "Pumps and compressors"],
+        flexType: "T10"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1080T",
+        size: "1080T",
+        boreRange: "40-200 mm",
+        maxRPM: 3000,
+        maxTorqueNm: 6778,
+        dimensions: { diameter: "165 mm", length: "205 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Steel grid element", "Zero backlash", "Maintenance-free design", "High torque capacity"],
+        applications: ["Industrial drives", "Precision machinery", "High-speed applications", "Pumps and compressors"],
+        flexType: "T10"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1090T",
+        size: "1090T",
+        boreRange: "45-225 mm",
+        maxRPM: 2700,
+        maxTorqueNm: 8134,
+        dimensions: { diameter: "185 mm", length: "225 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Steel grid element", "Zero backlash", "Maintenance-free design", "High torque capacity"],
+        applications: ["Industrial drives", "Precision machinery", "High-speed applications", "Pumps and compressors"],
+        flexType: "T10"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1100T",
+        size: "1100T",
+        boreRange: "50-250 mm",
+        maxRPM: 2500,
+        maxTorqueNm: 9489,
+        dimensions: { diameter: "205 mm", length: "245 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Steel grid element", "Zero backlash", "Maintenance-free design", "High torque capacity"],
+        applications: ["Industrial drives", "Precision machinery", "High-speed applications", "Pumps and compressors"],
+        flexType: "T10"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1110T",
+        size: "1110T",
+        boreRange: "55-275 mm",
+        maxRPM: 2300,
+        maxTorqueNm: 10845,
+        dimensions: { diameter: "225 mm", length: "265 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Steel grid element", "Zero backlash", "Maintenance-free design", "High torque capacity"],
+        applications: ["Industrial drives", "Precision machinery", "High-speed applications", "Pumps and compressors"],
+        flexType: "T10"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1120T",
+        size: "1120T",
+        boreRange: "60-300 mm",
+        maxRPM: 2100,
+        maxTorqueNm: 12200,
+        dimensions: { diameter: "245 mm", length: "285 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Steel grid element", "Zero backlash", "Maintenance-free design", "High torque capacity"],
+        applications: ["Industrial drives", "Precision machinery", "High-speed applications", "Pumps and compressors"],
+        flexType: "T10"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1130T",
+        size: "1130T",
+        boreRange: "65-325 mm",
+        maxRPM: 1900,
+        maxTorqueNm: 13556,
+        dimensions: { diameter: "265 mm", length: "305 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Steel grid element", "Zero backlash", "Maintenance-free design", "High torque capacity"],
+        applications: ["Industrial drives", "Precision machinery", "High-speed applications", "Pumps and compressors"],
+        flexType: "T10"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1140T",
+        size: "1140T",
+        boreRange: "70-350 mm",
+        maxRPM: 1800,
+        maxTorqueNm: 14911,
+        dimensions: { diameter: "285 mm", length: "325 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Steel grid element", "Zero backlash", "Maintenance-free design", "High torque capacity"],
+        applications: ["Industrial drives", "Precision machinery", "High-speed applications", "Pumps and compressors"],
+        flexType: "T10"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1150T",
+        size: "1150T",
+        boreRange: "75-375 mm",
+        maxRPM: 1700,
+        maxTorqueNm: 16267,
+        dimensions: { diameter: "305 mm", length: "345 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Steel grid element", "Zero backlash", "Maintenance-free design", "High torque capacity"],
+        applications: ["Industrial drives", "Precision machinery", "High-speed applications", "Pumps and compressors"],
+        flexType: "T10"
+      },
+
+      // Steelflex Couplings - Falk Steelflex Grid Couplings Type T20 (Heavy Duty Series)
+      {
+        type: "Steelflex Couplings",
+        model: "1020T20",
+        size: "1020T20",
+        boreRange: "12-30 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 350,
+        dimensions: { diameter: "55 mm", length: "92 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Heavy duty grid element", "Enhanced torque capacity", "Industrial grade construction", "Extended service life"],
+        applications: ["Heavy industrial drives", "Mining equipment", "Steel processing", "Marine propulsion"],
+        flexType: "T20"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1030T20",
+        size: "1030T20",
+        boreRange: "15-60 mm",
+        maxRPM: 4000,
+        maxTorqueNm: 1200,
+        dimensions: { diameter: "70 mm", length: "107 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Heavy duty grid element", "Enhanced torque capacity", "Industrial grade construction", "Extended service life"],
+        applications: ["Heavy industrial drives", "Mining equipment", "Steel processing", "Marine propulsion"],
+        flexType: "T20"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1040T20",
+        size: "1040T20",
+        boreRange: "20-90 mm",
+        maxRPM: 3500,
+        maxTorqueNm: 2400,
+        dimensions: { diameter: "90 mm", length: "130 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Heavy duty grid element", "Enhanced torque capacity", "Industrial grade construction", "Extended service life"],
+        applications: ["Heavy industrial drives", "Mining equipment", "Steel processing", "Marine propulsion"],
+        flexType: "T20"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1050T20",
+        size: "1050T20",
+        boreRange: "25-120 mm",
+        maxRPM: 3200,
+        maxTorqueNm: 4000,
+        dimensions: { diameter: "110 mm", length: "150 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Heavy duty grid element", "Enhanced torque capacity", "Industrial grade construction", "Extended service life"],
+        applications: ["Heavy industrial drives", "Mining equipment", "Steel processing", "Marine propulsion"],
+        flexType: "T20"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1060T20",
+        size: "1060T20",
+        boreRange: "30-150 mm",
+        maxRPM: 2900,
+        maxTorqueNm: 6000,
+        dimensions: { diameter: "130 mm", length: "170 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Heavy duty grid element", "Enhanced torque capacity", "Industrial grade construction", "Extended service life"],
+        applications: ["Heavy industrial drives", "Mining equipment", "Steel processing", "Marine propulsion"],
+        flexType: "T20"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1070T20",
+        size: "1070T20",
+        boreRange: "35-175 mm",
+        maxRPM: 2600,
+        maxTorqueNm: 8000,
+        dimensions: { diameter: "150 mm", length: "190 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Heavy duty grid element", "Enhanced torque capacity", "Industrial grade construction", "Extended service life"],
+        applications: ["Heavy industrial drives", "Mining equipment", "Steel processing", "Marine propulsion"],
+        flexType: "T20"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1080T20",
+        size: "1080T20",
+        boreRange: "40-200 mm",
+        maxRPM: 2400,
+        maxTorqueNm: 10000,
+        dimensions: { diameter: "170 mm", length: "210 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Heavy duty grid element", "Enhanced torque capacity", "Industrial grade construction", "Extended service life"],
+        applications: ["Heavy industrial drives", "Mining equipment", "Steel processing", "Marine propulsion"],
+        flexType: "T20"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1090T20",
+        size: "1090T20",
+        boreRange: "45-225 mm",
+        maxRPM: 2200,
+        maxTorqueNm: 12000,
+        dimensions: { diameter: "190 mm", length: "230 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Heavy duty grid element", "Enhanced torque capacity", "Industrial grade construction", "Extended service life"],
+        applications: ["Heavy industrial drives", "Mining equipment", "Steel processing", "Marine propulsion"],
+        flexType: "T20"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1100T20",
+        size: "1100T20",
+        boreRange: "50-250 mm",
+        maxRPM: 2000,
+        maxTorqueNm: 14000,
+        dimensions: { diameter: "210 mm", length: "250 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Heavy duty grid element", "Enhanced torque capacity", "Industrial grade construction", "Extended service life"],
+        applications: ["Heavy industrial drives", "Mining equipment", "Steel processing", "Marine propulsion"],
+        flexType: "T20"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1110T20",
+        size: "1110T20",
+        boreRange: "55-275 mm",
+        maxRPM: 1800,
+        maxTorqueNm: 16000,
+        dimensions: { diameter: "230 mm", length: "270 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Heavy duty grid element", "Enhanced torque capacity", "Industrial grade construction", "Extended service life"],
+        applications: ["Heavy industrial drives", "Mining equipment", "Steel processing", "Marine propulsion"],
+        flexType: "T20"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1120T20",
+        size: "1120T20",
+        boreRange: "60-300 mm",
+        maxRPM: 1700,
+        maxTorqueNm: 18000,
+        dimensions: { diameter: "250 mm", length: "290 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Heavy duty grid element", "Enhanced torque capacity", "Industrial grade construction", "Extended service life"],
+        applications: ["Heavy industrial drives", "Mining equipment", "Steel processing", "Marine propulsion"],
+        flexType: "T20"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1130T20",
+        size: "1130T20",
+        boreRange: "65-325 mm",
+        maxRPM: 1600,
+        maxTorqueNm: 20000,
+        dimensions: { diameter: "270 mm", length: "310 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Heavy duty grid element", "Enhanced torque capacity", "Industrial grade construction", "Extended service life"],
+        applications: ["Heavy industrial drives", "Mining equipment", "Steel processing", "Marine propulsion"],
+        flexType: "T20"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1140T20",
+        size: "1140T20",
+        boreRange: "70-350 mm",
+        maxRPM: 1500,
+        maxTorqueNm: 22000,
+        dimensions: { diameter: "290 mm", length: "330 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Heavy duty grid element", "Enhanced torque capacity", "Industrial grade construction", "Extended service life"],
+        applications: ["Heavy industrial drives", "Mining equipment", "Steel processing", "Marine propulsion"],
+        flexType: "T20"
+      },
+      {
+        type: "Steelflex Couplings",
+        model: "1150T20",
+        size: "1150T20",
+        boreRange: "75-375 mm",
+        maxRPM: 1400,
+        maxTorqueNm: 24000,
+        dimensions: { diameter: "310 mm", length: "350 mm" },
+        pdf: "assets/pdfs/MCC-421-110-FK-EN-US-Web.pdf",
+        features: ["Heavy duty grid element", "Enhanced torque capacity", "Industrial grade construction", "Extended service life"],
+        applications: ["Heavy industrial drives", "Mining equipment", "Steel processing", "Marine propulsion"],
+        flexType: "T20"
+      },
+      
+      // T10 Grid Couplings
+      {
+        type: "T10 Grid Couplings",
+        model: "1010",
+        size: "1010",
+        boreRange: "19-45 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 1200,
+        dimensions: { diameter: "90 mm", length: "120 mm" },
+        pdf: "assets/pdfs/T10_Grid_Coupling_Catalog.pdf",
+        features: ["High torque capacity", "Flexible grid element", "Shock absorption"],
+        applications: ["Heavy machinery", "Power transmission", "Industrial equipment"]
+      },
+      {
+        type: "T10 Grid Couplings",
+        model: "1020",
+        size: "1020",
+        boreRange: "25-65 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 2400,
+        dimensions: { diameter: "110 mm", length: "150 mm" },
+        pdf: "assets/pdfs/T10_Grid_Coupling_Catalog.pdf",
+        features: ["High torque capacity", "Flexible grid element", "Shock absorption"],
+        applications: ["Heavy machinery", "Power transmission", "Industrial equipment"]
+      },
+      {
+        type: "T10 Grid Couplings",
+        model: "1030",
+        size: "1030",
+        boreRange: "35-85 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 4800,
+        dimensions: { diameter: "140 mm", length: "180 mm" },
+        pdf: "assets/pdfs/T10_Grid_Coupling_Catalog.pdf",
+        features: ["High torque capacity", "Flexible grid element", "Shock absorption"],
+        applications: ["Heavy machinery", "Power transmission", "Industrial equipment"]
+      },
+      {
+        type: "T10 Grid Couplings",
+        model: "1040",
+        size: "1040",
+        boreRange: "45-110 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 9600,
+        dimensions: { diameter: "170 mm", length: "220 mm" },
+        pdf: "assets/pdfs/T10_Grid_Coupling_Catalog.pdf",
+        features: ["High torque capacity", "Flexible grid element", "Shock absorption"],
+        applications: ["Heavy machinery", "Power transmission", "Industrial equipment"]
+      },
+      {
+        type: "T10 Grid Couplings",
+        model: "1050",
+        size: "1050",
+        boreRange: "55-140 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 19200,
+        dimensions: { diameter: "200 mm", length: "260 mm" },
+        pdf: "assets/pdfs/T10_Grid_Coupling_Catalog.pdf",
+        features: ["High torque capacity", "Flexible grid element", "Shock absorption"],
+        applications: ["Heavy machinery", "Power transmission", "Industrial equipment"]
+      },
+      {
+        type: "T10 Grid Couplings",
+        model: "1060",
+        size: "1060",
+        boreRange: "65-170 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 38400,
+        dimensions: { diameter: "240 mm", length: "300 mm" },
+        pdf: "assets/pdfs/T10_Grid_Coupling_Catalog.pdf",
+        features: ["High torque capacity", "Flexible grid element", "Shock absorption"],
+        applications: ["Heavy machinery", "Power transmission", "Industrial equipment"]
+      },
+      {
+        type: "T10 Grid Couplings",
+        model: "1070",
+        size: "1070",
+        boreRange: "80-200 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 76800,
+        dimensions: { diameter: "280 mm", length: "340 mm" },
+        pdf: "assets/pdfs/T10_Grid_Coupling_Catalog.pdf",
+        features: ["High torque capacity", "Flexible grid element", "Shock absorption"],
+        applications: ["Heavy machinery", "Power transmission", "Industrial equipment"]
+      },
+      {
+        type: "T10 Grid Couplings",
+        model: "1080",
+        size: "1080",
+        boreRange: "95-220 mm",
+        maxRPM: 4500,
+        maxTorqueNm: 135000,
+        dimensions: { diameter: "320 mm", length: "380 mm" },
+        pdf: "assets/pdfs/T10_Grid_Coupling_Catalog.pdf",
+        features: ["High torque capacity", "Flexible grid element", "Shock absorption"],
+        applications: ["Heavy machinery", "Power transmission", "Industrial equipment"]
+      },
+      
+      // T20 Disc Couplings
+      {
+        type: "T20 Disc Couplings",
+        model: "1010",
+        size: "1010",
+        boreRange: "9-25 mm",
+        maxRPM: 10000,
+        maxTorqueNm: 100,
+        dimensions: { diameter: "45 mm", length: "65 mm" },
+        pdf: "assets/pdfs/T20_Disc_Coupling_Catalog.pdf",
+        features: ["High precision", "Zero backlash", "High speed capability"],
+        applications: ["High-speed machinery", "Precision equipment", "Servo drives"]
+      },
+      {
+        type: "T20 Disc Couplings",
+        model: "1020",
+        size: "1020",
+        boreRange: "14-35 mm",
+        maxRPM: 10000,
+        maxTorqueNm: 250,
+        dimensions: { diameter: "60 mm", length: "80 mm" },
+        pdf: "assets/pdfs/T20_Disc_Coupling_Catalog.pdf",
+        features: ["High precision", "Zero backlash", "High speed capability"],
+        applications: ["High-speed machinery", "Precision equipment", "Servo drives"]
+      },
+      {
+        type: "T20 Disc Couplings",
+        model: "1030",
+        size: "1030",
+        boreRange: "19-45 mm",
+        maxRPM: 10000,
+        maxTorqueNm: 500,
+        dimensions: { diameter: "75 mm", length: "95 mm" },
+        pdf: "assets/pdfs/T20_Disc_Coupling_Catalog.pdf",
+        features: ["High precision", "Zero backlash", "High speed capability"],
+        applications: ["High-speed machinery", "Precision equipment", "Servo drives"]
+      },
+      {
+        type: "T20 Disc Couplings",
+        model: "1040",
+        size: "1040",
+        boreRange: "24-60 mm",
+        maxRPM: 10000,
+        maxTorqueNm: 1000,
+        dimensions: { diameter: "90 mm", length: "110 mm" },
+        pdf: "assets/pdfs/T20_Disc_Coupling_Catalog.pdf",
+        features: ["High precision", "Zero backlash", "High speed capability"],
+        applications: ["High-speed machinery", "Precision equipment", "Servo drives"]
+      },
+      {
+        type: "T20 Disc Couplings",
+        model: "1050",
+        size: "1050",
+        boreRange: "30-75 mm",
+        maxRPM: 10000,
+        maxTorqueNm: 2000,
+        dimensions: { diameter: "110 mm", length: "125 mm" },
+        pdf: "assets/pdfs/T20_Disc_Coupling_Catalog.pdf",
+        features: ["High precision", "Zero backlash", "High speed capability"],
+        applications: ["High-speed machinery", "Precision equipment", "Servo drives"]
+      },
+      {
+        type: "T20 Disc Couplings",
+        model: "1060",
+        size: "1060",
+        boreRange: "35-90 mm",
+        maxRPM: 10000,
+        maxTorqueNm: 3500,
+        dimensions: { diameter: "130 mm", length: "140 mm" },
+        pdf: "assets/pdfs/T20_Disc_Coupling_Catalog.pdf",
+        features: ["High precision", "Zero backlash", "High speed capability"],
+        applications: ["High-speed machinery", "Precision equipment", "Servo drives"]
+      },
+      {
+        type: "T20 Disc Couplings",
+        model: "1070",
+        size: "1070",
+        boreRange: "45-110 mm",
+        maxRPM: 10000,
+        maxTorqueNm: 6000,
+        dimensions: { diameter: "150 mm", length: "155 mm" },
+        pdf: "assets/pdfs/T20_Disc_Coupling_Catalog.pdf",
+        features: ["High precision", "Zero backlash", "High speed capability"],
+        applications: ["High-speed machinery", "Precision equipment", "Servo drives"]
+      },
+      {
+        type: "T20 Disc Couplings",
+        model: "1080",
+        size: "1080",
+        boreRange: "55-140 mm",
+        maxRPM: 10000,
+        maxTorqueNm: 8500,
+        dimensions: { diameter: "170 mm", length: "170 mm" },
+        pdf: "assets/pdfs/T20_Disc_Coupling_Catalog.pdf",
+        features: ["High precision", "Zero backlash", "High speed capability"],
+        applications: ["High-speed machinery", "Precision equipment", "Servo drives"]
+      },
+      
+      // Long-Term Grease - Falk Long-Term Grease (Based on 840201_Falk-Long-Term-Grease_WEB.pdf)
+      {
+        type: "Long-Term Grease",
+        model: "LTG Pail",
+        size: "18 kg Pail",
+        boreRange: "N/A",
+        maxRPM: 0,
+        maxTorqueNm: 0,
+        dimensions: { diameter: "300 mm", length: "400 mm" },
+        pdf: "assets/pdfs/840201_Falk-Long-Term-Grease_WEB.pdf",
+        features: ["Extended service life up to 5 years", "High temperature stability up to 150°C", "Excellent water resistance", "NLGI Grade 1-2 consistency", "Anti-wear additives", "Corrosion protection"],
+        applications: ["Gear couplings", "Heavy machinery", "Industrial equipment", "Mining equipment", "Steel mills", "Marine applications"],
+        package: "18 kg Pail",
+        productForm: "Grease",
+        operatingTemperature: "-20°C to 150°C",
+        serviceLife: "Up to 5 years",
+        nlgiGrade: "1-2"
+      },
+      {
+        type: "Long-Term Grease",
+        model: "LTG Tube",
+        size: "400 g Tube",
+        boreRange: "N/A",
+        maxRPM: 0,
+        maxTorqueNm: 0,
+        dimensions: { diameter: "60 mm", length: "200 mm" },
+        pdf: "assets/pdfs/840201_Falk-Long-Term-Grease_WEB.pdf",
+        features: ["Extended service life up to 5 years", "High temperature stability up to 150°C", "Excellent water resistance", "NLGI Grade 1-2 consistency", "Anti-wear additives", "Corrosion protection"],
+        applications: ["Gear couplings", "Heavy machinery", "Industrial equipment", "Mining equipment", "Steel mills", "Marine applications"],
+        package: "400 g Tube",
+        productForm: "Grease",
+        operatingTemperature: "-20°C to 150°C",
+        serviceLife: "Up to 5 years",
+        nlgiGrade: "1-2"
+      },
+      {
+        type: "Long-Term Grease",
+        model: "LTG Cartridge",
+        size: "500 g Cartridge",
+        boreRange: "N/A",
+        maxRPM: 0,
+        maxTorqueNm: 0,
+        dimensions: { diameter: "80 mm", length: "250 mm" },
+        pdf: "assets/pdfs/840201_Falk-Long-Term-Grease_WEB.pdf",
+        features: ["Extended service life up to 5 years", "High temperature stability up to 150°C", "Excellent water resistance", "NLGI Grade 1-2 consistency", "Anti-wear additives", "Corrosion protection"],
+        applications: ["Gear couplings", "Heavy machinery", "Industrial equipment", "Mining equipment", "Steel mills", "Marine applications"],
+        package: "500 g Cartridge",
+        productForm: "Grease",
+        operatingTemperature: "-20°C to 150°C",
+        serviceLife: "Up to 5 years",
+        nlgiGrade: "1-2"
+      },
+      {
+        type: "Long-Term Grease",
+        model: "LTG Drum",
+        size: "180 kg Drum",
+        boreRange: "N/A",
+        maxRPM: 0,
+        maxTorqueNm: 0,
+        dimensions: { diameter: "580 mm", length: "900 mm" },
+        pdf: "assets/pdfs/840201_Falk-Long-Term-Grease_WEB.pdf",
+        features: ["Extended service life up to 5 years", "High temperature stability up to 150°C", "Excellent water resistance", "NLGI Grade 1-2 consistency", "Anti-wear additives", "Corrosion protection"],
+        applications: ["Gear couplings", "Heavy machinery", "Industrial equipment", "Mining equipment", "Steel mills", "Marine applications"],
+        package: "180 kg Drum",
+        productForm: "Grease",
+        operatingTemperature: "-20°C to 150°C",
+        serviceLife: "Up to 5 years",
+        nlgiGrade: "1-2"
+      }
+    ];
+
+    // Update status
+    function updateStatus(message) {
+      const statusEl = document.getElementById('statusInfo');
+      if (statusEl) {
+        statusEl.textContent = `Status: ${message}`;
+      }
+    }
+
+    // Get image URL for product type
+    function getProductImage(type, model) {
+      // Use actual product images if available, otherwise use placeholder
+      const imageMap = {
+        "Wrapflex Couplings": {
+          "5R": "assets/images/wrapflex-5r.jpg",
+          "10R": "assets/images/wrapflex-10r.jpg", 
+          "15R": "assets/images/wrapflex-15r.jpg",
+          "20R": "assets/images/wrapflex-20r.jpg",
+          "30R": "assets/images/wrapflex-30r.jpg",
+          "40R": "assets/images/wrapflex-40r.jpg",
+          "50R": "assets/images/wrapflex-50r.jpg",
+          "60R": "assets/images/wrapflex-60r.jpg",
+          "70R": "assets/images/wrapflex-70r.jpg",
+          "80R": "assets/images/wrapflex-80r.jpg"
+        },
+        "Gear Couplings": {
+          "1010G": "assets/images/gear-1010g.jpg",
+          "1020G": "assets/images/gear-1020g.jpg",
+          "1030G": "assets/images/gear-1030g.jpg",
+          "1040G": "assets/images/gear-1040g.jpg",
+          "1050G": "assets/images/gear-1050g.jpg",
+          "1060G": "assets/images/gear-1060g.jpg",
+          "1070G": "assets/images/gear-1070g.jpg"
+        },
+        "Steelflex Couplings": {
+          "1020T": "assets/images/steelflex-1020t.jpg",
+          "1030T": "assets/images/steelflex-1030t.jpg",
+          "1040T": "assets/images/steelflex-1040t.jpg",
+          "1050T": "assets/images/steelflex-1050t.jpg",
+          "1060T": "assets/images/steelflex-1060t.jpg",
+          "1070T": "assets/images/steelflex-1070t.jpg",
+          "1080T": "assets/images/steelflex-1080t.jpg",
+          "1090T": "assets/images/steelflex-1090t.jpg",
+          "1100T": "assets/images/steelflex-1100t.jpg",
+          "1110T": "assets/images/steelflex-1110t.jpg",
+          "1120T": "assets/images/steelflex-1120t.jpg",
+          "1130T": "assets/images/steelflex-1130t.jpg",
+          "1140T": "assets/images/steelflex-1140t.jpg",
+          "1150T": "assets/images/steelflex-1150t.jpg"
+        },
+        "T10 Grid Couplings": {
+          "1010": "assets/images/t10-1010.jpg",
+          "1020": "assets/images/t10-1020.jpg",
+          "1030": "assets/images/t10-1030.jpg",
+          "1040": "assets/images/t10-1040.jpg",
+          "1050": "assets/images/t10-1050.jpg",
+          "1060": "assets/images/t10-1060.jpg",
+          "1070": "assets/images/t10-1070.jpg",
+          "1080": "assets/images/t10-1080.jpg"
+        },
+        "T20 Disc Couplings": {
+          "1010": "assets/images/t20-1010.jpg",
+          "1020": "assets/images/t20-1020.jpg",
+          "1030": "assets/images/t20-1030.jpg",
+          "1040": "assets/images/t20-1040.jpg",
+          "1050": "assets/images/t20-1050.jpg",
+          "1060": "assets/images/t20-1060.jpg",
+          "1070": "assets/images/t20-1070.jpg",
+          "1080": "assets/images/t20-1080.jpg"
+        },
+        "Long-Term Grease": {
+          "LTG Pail": "assets/images/ltg-pail.jpg",
+          "LTG Tube": "assets/images/ltg-tube.jpg"
+        }
+      };
+      
+      // Return actual image if exists, otherwise placeholder
+      if (imageMap[type] && imageMap[type][model]) {
+        return imageMap[type][model];
+      }
+      
+      // Fallback to placeholder
+      const placeholderMap = {
+        "Wrapflex Couplings": "https://via.placeholder.com/150x150/142b4f/ffffff?text=Wrapflex",
+        "Gear Couplings": "https://via.placeholder.com/150x150/142b4f/ffffff?text=Gear",
+        "Steelflex Couplings": "https://via.placeholder.com/150x150/142b4f/ffffff?text=Steelflex",
+        "T10 Grid Couplings": "https://via.placeholder.com/150x150/142b4f/ffffff?text=T10+Grid",
+        "T20 Disc Couplings": "https://via.placeholder.com/150x150/142b4f/ffffff?text=T20+Disc",
+        "Long-Term Grease": "https://via.placeholder.com/150x150/142b4f/ffffff?text=Grease"
+      };
+      return placeholderMap[type] || "https://via.placeholder.com/150x150/142b4f/ffffff?text=Product";
+    }
+
+    // Get YouTube link for product
+    function getYouTubeLink(type, model) {
+      const youtubeMap = {
+        "Wrapflex Couplings": {
+          "5R": "https://www.youtube.com/watch?v=wrapflex-5r",
+          "10R": "https://www.youtube.com/watch?v=wrapflex-10r",
+          "15R": "https://www.youtube.com/watch?v=wrapflex-15r",
+          "20R": "https://www.youtube.com/watch?v=wrapflex-20r",
+          "30R": "https://www.youtube.com/watch?v=wrapflex-30r"
+        },
+        "Gear Couplings": {
+          "1010G": "https://www.youtube.com/watch?v=gear-1010g",
+          "1020G": "https://www.youtube.com/watch?v=gear-1020g",
+          "1030G": "https://www.youtube.com/watch?v=gear-1030g"
+        },
+        "Steelflex Couplings": {
+          "1020T": "https://www.youtube.com/watch?v=steelflex-1020t",
+          "1030T": "https://www.youtube.com/watch?v=steelflex-1030t",
+          "1040T": "https://www.youtube.com/watch?v=steelflex-1040t"
+        },
+        "T10 Grid Couplings": {
+          "1010": "https://www.youtube.com/watch?v=t10-1010",
+          "1020": "https://www.youtube.com/watch?v=t10-1020",
+          "1030": "https://www.youtube.com/watch?v=t10-1030"
+        },
+        "T20 Disc Couplings": {
+          "1010": "https://www.youtube.com/watch?v=t20-1010",
+          "1020": "https://www.youtube.com/watch?v=t20-1020",
+          "1030": "https://www.youtube.com/watch?v=t20-1030"
+        },
+        "Long-Term Grease": {
+          "LTG Pail": "https://www.youtube.com/watch?v=ltg-pail",
+          "LTG Tube": "https://www.youtube.com/watch?v=ltg-tube"
+        }
+      };
+      
+      return youtubeMap[type] && youtubeMap[type][model] ? youtubeMap[type][model] : null;
+    }
+
+    // Initialize page
+    function initPage() {
+      displayAllProducts();
+    }
+
+    // Global variables
+    let currentPage = 1;
+    let itemsPerPage = 9;
+    let filteredProducts = [];
+    let currentViewMode = 'grid';
+
+    function displayAllProducts() {
+      currentPage = 1;
+      filteredProducts = [...productData];
+      displayProducts();
+    }
+
+    function filterProducts() {
+      const selectedType = document.getElementById('typeSelect').value;
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      
+      filteredProducts = productData.filter(product => {
+        const typeMatch = selectedType === "" || product.type === selectedType;
+        const searchMatch = searchTerm === "" || 
+          product.model.toLowerCase().includes(searchTerm) ||
+          product.size.toLowerCase().includes(searchTerm) ||
+          product.type.toLowerCase().includes(searchTerm) ||
+          product.boreRange.toLowerCase().includes(searchTerm) ||
+          product.maxTorqueNm.toString().includes(searchTerm);
+        
+        return typeMatch && searchMatch;
+      });
+      
+      currentPage = 1;
+      displayProducts();
+    }
+
+    function searchProducts() {
+      filterProducts();
+    }
+
+    function resetFilters() {
+      document.getElementById('typeSelect').value = "";
+      document.getElementById('searchInput').value = "";
+      displayAllProducts();
+    }
+
+    function setViewMode(mode) {
+      currentViewMode = mode;
+      
+      // Update button states
+      document.querySelectorAll('.view-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.closest('.view-btn').classList.add('active');
+      
+      // Update grid class
+      const grid = document.getElementById('productGrid');
+      if (mode === 'list') {
+        grid.classList.add('list-view');
+      } else {
+        grid.classList.remove('list-view');
+      }
+      
+      displayProducts();
+    }
+
+    function displayProducts() {
+      const grid = document.getElementById('productGrid');
+      const resultCount = document.getElementById('resultCount');
+      
+      // Update result count
+      resultCount.textContent = filteredProducts.length;
+      
+      if (filteredProducts.length === 0) {
+        grid.innerHTML = '<div class="no-results"><i class="fas fa-search"></i><p>Tidak ada produk yang ditemukan</p></div>';
+        document.getElementById('pagination').innerHTML = '';
+        return;
+      }
+      
+      // Calculate pagination
+      const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      const currentProducts = filteredProducts.slice(startIndex, endIndex);
+      
+      // Display products
+      grid.innerHTML = currentProducts.map(product => createProductCard(product)).join('');
+      
+      // Display pagination
+      displayPagination(totalPages);
+    }
+
+    function createProductCard(product) {
+      const featuresHtml = product.features.map(feature => 
+        `<li class="feature-item">${feature}</li>`
+      ).join('');
+
+      const gearTypeBadge = product.gearType ? 
+        `<span class="gear-type-badge">${product.gearType}</span>` : '';
+
+      const flexTypeBadge = product.flexType ? 
+        `<span class="flex-type-badge">${product.flexType}</span>` : '';
+
+      if (currentViewMode === 'list') {
+        return `
+          <div class="product-card">
+            <div class="product-header">
+              <h3 class="product-title">${product.model}</h3>
+              <p class="product-subtitle">${product.type}</p>
+              ${gearTypeBadge}
+              ${flexTypeBadge}
+            </div>
+            <div class="product-specs">
+              <div class="spec-item">
+                <span class="spec-label">Ukuran:</span>
+                <span class="spec-value">${product.size}</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Bore Range:</span>
+                <span class="spec-value">${product.boreRange}</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Max RPM:</span>
+                <span class="spec-value">${product.maxRPM.toLocaleString()}</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Max Torque:</span>
+                <span class="spec-value">${product.maxTorqueNm.toLocaleString()} Nm</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Dimensi:</span>
+                <span class="spec-value">${product.dimensions.diameter} × ${product.dimensions.length}</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Aplikasi:</span>
+                <span class="spec-value">${product.applications.slice(0, 2).join(', ')}</span>
+              </div>
+            </div>
+            <a href="${product.pdf}" target="_blank" class="product-link">
+              <i class="fas fa-file-pdf"></i>
+              Lihat PDF
+            </a>
+          </div>
+        `;
+      }
+
+      return `
+        <div class="product-card">
+          <div class="product-header">
+            <h3 class="product-title">${product.model}</h3>
+            <p class="product-subtitle">${product.type}</p>
+            ${gearTypeBadge}
+            ${flexTypeBadge}
+          </div>
+          <div class="product-specs">
+            <div class="spec-item">
+              <span class="spec-label">Ukuran:</span>
+              <span class="spec-value">${product.size}</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Bore Range:</span>
+              <span class="spec-value">${product.boreRange}</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Max RPM:</span>
+              <span class="spec-value">${product.maxRPM.toLocaleString()}</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Max Torque:</span>
+              <span class="spec-value">${product.maxTorqueNm.toLocaleString()} Nm</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Dimensi:</span>
+              <span class="spec-value">${product.dimensions.diameter} × ${product.dimensions.length}</span>
+            </div>
+          </div>
+          <div class="product-features">
+            <ul class="feature-list">
+              ${featuresHtml}
+            </ul>
+          </div>
+          <a href="${product.pdf}" target="_blank" class="product-link">
+            <i class="fas fa-file-pdf"></i>
+            Lihat PDF
+          </a>
+        </div>
+      `;
+    }
+
+    function displayPagination(totalPages) {
+      const pagination = document.getElementById('pagination');
+      
+      if (totalPages <= 1) {
+        pagination.innerHTML = '';
+        return;
+      }
+      
+      let paginationHtml = '';
+      
+      // Previous button
+      paginationHtml += `
+        <button class="pagination-btn" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      `;
+      
+      // Page numbers
+      const maxVisiblePages = 5;
+      let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+      let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+      
+      if (endPage - startPage < maxVisiblePages - 1) {
+        startPage = Math.max(1, endPage - maxVisiblePages + 1);
+      }
+      
+      if (startPage > 1) {
+        paginationHtml += `<button class="pagination-btn" onclick="changePage(1)">1</button>`;
+        if (startPage > 2) {
+          paginationHtml += `<span class="pagination-info">...</span>`;
+        }
+      }
+      
+      for (let i = startPage; i <= endPage; i++) {
+        paginationHtml += `
+          <button class="pagination-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">
+            ${i}
+          </button>
+        `;
+      }
+      
+      if (endPage < totalPages) {
+        if (endPage < totalPages - 1) {
+          paginationHtml += `<span class="pagination-info">...</span>`;
+        }
+        paginationHtml += `<button class="pagination-btn" onclick="changePage(${totalPages})">${totalPages}</button>`;
+      }
+      
+      // Next button
+      paginationHtml += `
+        <button class="pagination-btn" onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      `;
+      
+      // Page info
+      paginationHtml += `
+        <span class="pagination-info">
+          Halaman ${currentPage} dari ${totalPages}
+        </span>
+      `;
+      
+      pagination.innerHTML = paginationHtml;
+    }
+
+    function changePage(page) {
+      const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+      if (page < 1 || page > totalPages) return;
+      
+      currentPage = page;
+      displayProducts();
+      
+      // Scroll to top of results
+      document.getElementById('selectorResults').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Initialize when page loads
+    window.onload = function() {
+      initPage();
+    };
+  </script>
+</body>
+</html>
