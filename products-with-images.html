@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Produk dengan Gambar - Momentum Machinery Part</title>
+    <meta name="description" content="Katalog lengkap Falk Rexnord coupling dengan gambar produk">
+    <link rel="icon" href="momentum.png" type="image/png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #1a365d, #2c5282);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d4af37;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #1a365d;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+            padding: 60px 0;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.9), rgba(44, 82, 130, 0.9)),
+                        url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Search Section */
+        .search-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 60px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 300px;
+            padding: 15px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+
+        .quick-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .quick-btn {
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #d4af37, #f4e4bc);
+            color: #1a365d;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quick-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e0);
+        }
+
+        .product-content {
+            padding: 25px;
+        }
+
+        .product-category {
+            display: inline-block;
+            background: linear-gradient(45deg, #d4af37, #f4e4bc);
+            color: #1a365d;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .product-model {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 15px;
+        }
+
+        .product-specs {
+            margin-bottom: 20px;
+        }
+
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .spec-label {
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        .spec-value {
+            color: #1a365d;
+            font-weight: 500;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-detail, .btn-pdf {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            min-width: 120px;
+        }
+
+        .btn-detail {
+            background: linear-gradient(45deg, #1a365d, #2c5282);
+            color: white;
+        }
+
+        .btn-pdf {
+            background: linear-gradient(45deg, #d4af37, #f4e4bc);
+            color: #1a365d;
+        }
+
+        .btn-detail:hover, .btn-pdf:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Category Sections */
+        .category-section {
+            margin-bottom: 80px;
+        }
+
+        .category-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .category-title {
+            font-size: 2.5rem;
+            color: #1a365d;
+            margin-bottom: 15px;
+        }
+
+        .category-description {
+            font-size: 1.1rem;
+            color: #4a5568;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Stats */
+        .stats {
+            background: linear-gradient(45deg, #1a365d, #2c5282);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .stats h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a365d;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            color: #d4af37;
+        }
+
+        .footer-section p, .footer-section li {
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .page-header p {
+                font-size: 1.1rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-box {
+                flex-direction: column;
+            }
+            
+            .search-input {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="momentum.png" alt="Momentum Machinery Part Logo">
+                    <h1>Momentum Machinery Part</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="products-with-images.html">Katalog Produk</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Katalog Produk Falk Rexnord</h1>
+                <p>Katalog lengkap coupling industri berkualitas tinggi dengan gambar produk dan spesifikasi detail</p>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="container stats">
+            <h2>Statistik Produk Kami</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">39</div>
+                    <div class="stat-label">Produk Total</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Kategori</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">PDF Katalog</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Produk Asli</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="container search-section">
+            <div class="search-box">
+                <input type="text" class="search-input" id="searchInput" placeholder="Cari produk: steelflex, gear, wrapflex, t10, t20, pumps, mining...">
+                <div class="quick-buttons">
+                    <button class="quick-btn" onclick="quickSearch('steelflex')">Steelflex</button>
+                    <button class="quick-btn" onclick="quickSearch('gear')">Gear</button>
+                    <button class="quick-btn" onclick="quickSearch('wrapflex')">Wrapflex</button>
+                    <button class="quick-btn" onclick="quickSearch('t10')">T10</button>
+                    <button class="quick-btn" onclick="quickSearch('t20')">T20</button>
+                    <button class="quick-btn" onclick="quickSearch('')">Semua</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Container -->
+        <div class="container">
+            <div id="productsContainer"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Momentum Machinery Part</h3>
+                    <p>Supplier resmi Falk Rexnord coupling di Indonesia</p>
+                    <p>📧 momentummachenerypart@gmail.com</p>
+                    <p>📱 +62 812-3456-7890</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Produk</h3>
+                    <ul>
+                        <li>Wrapflex Couplings</li>
+                        <li>Gear Couplings</li>
+                        <li>Steelflex Couplings</li>
+                        <li>T10 Grid Couplings</li>
+                        <li>T20 Disc Couplings</li>
+                        <li>Long-Term Grease</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li>Technical Consultation</li>
+                        <li>Product Selection</li>
+                        <li>Installation Support</li>
+                        <li>Maintenance Service</li>
+                        <li>Spare Parts</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html" style="color: inherit; text-decoration: none;">Beranda</a></li>
+                        <li><a href="about.html" style="color: inherit; text-decoration: none;">Tentang Kami</a></li>
+                        <li><a href="products-with-images.html" style="color: inherit; text-decoration: none;">Katalog Produk</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Momentum Machinery Part. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product data dengan gambar
+        const products = [
+            // Steelflex Couplings
+            {
+                model: "1020T",
+                category: "Steelflex Couplings",
+                image: "https://via.placeholder.com/400x250/1a365d/ffffff?text=Steelflex+1020T",
+                bore: "12-30 mm",
+                torque: "200 Nm",
+                rpm: "5000",
+                pdf: "assets/pdfs/CP5-004_productsheet.pdf"
+            },
+            {
+                model: "1030T",
+                category: "Steelflex Couplings",
+                image: "https://via.placeholder.com/400x250/1a365d/ffffff?text=Steelflex+1030T",
+                bore: "15-60 mm",
+                torque: "500 Nm",
+                rpm: "5000",
+                pdf: "assets/pdfs/CP5-004_productsheet.pdf"
+            },
+            {
+                model: "1040T",
+                category: "Steelflex Couplings",
+                image: "https://via.placeholder.com/400x250/1a365d/ffffff?text=Steelflex+1040T",
+                bore: "20-90 mm",
+                torque: "900 Nm",
+                rpm: "5000",
+                pdf: "assets/pdfs/CP5-004_productsheet.pdf"
+            },
+            {
+                model: "1050T",
+                category: "Steelflex Couplings",
+                image: "https://via.placeholder.com/400x250/1a365d/ffffff?text=Steelflex+1050T",
+                bore: "25-120 mm",
+                torque: "1600 Nm",
+                rpm: "5000",
+                pdf: "assets/pdfs/CP5-004_productsheet.pdf"
+            },
+            {
+                model: "1060T",
+                category: "Steelflex Couplings",
+                image: "https://via.placeholder.com/400x250/1a365d/ffffff?text=Steelflex+1060T",
+                bore: "30-150 mm",
+                torque: "2800 Nm",
+                rpm: "5000",
+                pdf: "assets/pdfs/CP5-004_productsheet.pdf"
+            },
+            
+            // Gear Couplings
+            {
+                model: "1010G",
+                category: "Gear Couplings",
+                image: "https://via.placeholder.com/400x250/2c5282/ffffff?text=Gear+1010G",
+                bore: "12-40 mm",
+                torque: "400 Nm",
+                rpm: "4500",
+                pdf: "assets/pdfs/458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf"
+            },
+            {
+                model: "1020G",
+                category: "Gear Couplings",
+                image: "https://via.placeholder.com/400x250/2c5282/ffffff?text=Gear+1020G",
+                bore: "20-80 mm",
+                torque: "1000 Nm",
+                rpm: "4500",
+                pdf: "assets/pdfs/458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf"
+            },
+            {
+                model: "1030G",
+                category: "Gear Couplings",
+                image: "https://via.placeholder.com/400x250/2c5282/ffffff?text=Gear+1030G",
+                bore: "25-120 mm",
+                torque: "1800 Nm",
+                rpm: "4500",
+                pdf: "assets/pdfs/458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf"
+            },
+            {
+                model: "1040G",
+                category: "Gear Couplings",
+                image: "https://via.placeholder.com/400x250/2c5282/ffffff?text=Gear+1040G",
+                bore: "30-150 mm",
+                torque: "3200 Nm",
+                rpm: "4500",
+                pdf: "assets/pdfs/458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf"
+            },
+            {
+                model: "1050G",
+                category: "Gear Couplings",
+                image: "https://via.placeholder.com/400x250/2c5282/ffffff?text=Gear+1050G",
+                bore: "35-180 mm",
+                torque: "5600 Nm",
+                rpm: "4500",
+                pdf: "assets/pdfs/458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf"
+            },
+            {
+                model: "1060G",
+                category: "Gear Couplings",
+                image: "https://via.placeholder.com/400x250/2c5282/ffffff?text=Gear+1060G",
+                bore: "40-210 mm",
+                torque: "10000 Nm",
+                rpm: "4500",
+                pdf: "assets/pdfs/458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf"
+            },
+            {
+                model: "1070G",
+                category: "Gear Couplings",
+                image: "https://via.placeholder.com/400x250/2c5282/ffffff?text=Gear+1070G",
+                bore: "45-240 mm",
+                torque: "18000 Nm",
+                rpm: "4500",
+                pdf: "assets/pdfs/458-110_Falk-Lifelign-Type-G,Sizes-1010-1070-Gear-Couplings_Installation-Manual.pdf"
+            },
+            
+            // Wrapflex Couplings
+            {
+                model: "5R",
+                category: "Wrapflex Couplings",
+                image: "https://via.placeholder.com/400x250/d4af37/1a365d?text=Wrapflex+5R",
+                bore: "5-15 mm",
+                torque: "62 Nm",
+                rpm: "6000",
+                pdf: "assets/pdfs/491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf"
+            },
+            {
+                model: "10R",
+                category: "Wrapflex Couplings",
+                image: "https://via.placeholder.com/400x250/d4af37/1a365d?text=Wrapflex+10R",
+                bore: "8-25 mm",
+                torque: "130 Nm",
+                rpm: "6000",
+                pdf: "assets/pdfs/491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf"
+            },
+            {
+                model: "20R",
+                category: "Wrapflex Couplings",
+                image: "https://via.placeholder.com/400x250/d4af37/1a365d?text=Wrapflex+20R",
+                bore: "10-50 mm",
+                torque: "316 Nm",
+                rpm: "6000",
+                pdf: "assets/pdfs/491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf"
+            },
+            {
+                model: "30R",
+                category: "Wrapflex Couplings",
+                image: "https://via.placeholder.com/400x250/d4af37/1a365d?text=Wrapflex+30R",
+                bore: "12-75 mm",
+                torque: "529 Nm",
+                rpm: "6000",
+                pdf: "assets/pdfs/491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf"
+            },
+            {
+                model: "40R",
+                category: "Wrapflex Couplings",
+                image: "https://via.placeholder.com/400x250/d4af37/1a365d?text=Wrapflex+40R",
+                bore: "15-100 mm",
+                torque: "1033 Nm",
+                rpm: "6000",
+                pdf: "assets/pdfs/491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf"
+            },
+            {
+                model: "50R",
+                category: "Wrapflex Couplings",
+                image: "https://via.placeholder.com/400x250/d4af37/1a365d?text=Wrapflex+50R",
+                bore: "18-125 mm",
+                torque: "2508 Nm",
+                rpm: "6000",
+                pdf: "assets/pdfs/491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf"
+            },
+            {
+                model: "60R",
+                category: "Wrapflex Couplings",
+                image: "https://via.placeholder.com/400x250/d4af37/1a365d?text=Wrapflex+60R",
+                bore: "20-150 mm",
+                torque: "4011 Nm",
+                rpm: "6000",
+                pdf: "assets/pdfs/491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf"
+            },
+            {
+                model: "70R",
+                category: "Wrapflex Couplings",
+                image: "https://via.placeholder.com/400x250/d4af37/1a365d?text=Wrapflex+70R",
+                bore: "25-175 mm",
+                torque: "8011 Nm",
+                rpm: "6000",
+                pdf: "assets/pdfs/491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf"
+            },
+            {
+                model: "80R",
+                category: "Wrapflex Couplings",
+                image: "https://via.placeholder.com/400x250/d4af37/1a365d?text=Wrapflex+80R",
+                bore: "30-200 mm",
+                torque: "15027 Nm",
+                rpm: "6000",
+                pdf: "assets/pdfs/491-110-Falk-Wrapflex-Elastomeric-Couplings_Catalog.pdf"
+            },
+            
+            // T10 Grid Couplings
+            {
+                model: "1010",
+                category: "T10 Grid Couplings",
+                image: "https://via.placeholder.com/400x250/4a5568/ffffff?text=T10+1010",
+                bore: "19-45 mm",
+                torque: "1200 Nm",
+                rpm: "4500",
+                pdf: "assets/pdfs/T10_Grid_Coupling_Catalog.pdf"
+            },
+
+            {
+                model: "1020",
+                category: "T10 Grid Couplings",
+                image: "https://via.placeholder.com/400x250/4a5568/ffffff?text=T10+1020",
+                bore: "25-65 mm",
+                torque: "2400 Nm",
+                rpm: "4500",
+                pdf: "assets/pdfs/T10_Grid_Coupling_Catalog.pdf"
+            },
+            {
+                model: "1030",
+                category: "T10 Grid Couplings",
+                image: "https://via.placeholder.com/400x250/4a5568/ffffff?text=T10+1030",
+                bore: "35-85 mm",
+                torque: "4800 Nm",
+                rpm: "4500",
+                pdf: "assets/pdfs/T10_Grid_Coupling_Catalog.pdf"
+            },
+            {
+                model: "1040",
+                category: "T10 Grid Couplings",
+                image: "https://via.placeholder.com/400x250/4a5568/ffffff?text=T10+1040",
+                bore: "45-110 mm",
+                torque: "9600 Nm",
+                rpm: "4500",
+                pdf: "assets/pdfs/T10_Grid_Coupling_Catalog.pdf"
+            },
+            {
+                model: "1050",
+                category: "T10 Grid Couplings",
+                image: "https://via.placeholder.com/400x250/4a5568/ffffff?text=T10+1050",
+                bore: "55-140 mm",
+                torque: "19200 Nm",
+                rpm: "4500",
+                pdf: "assets/pdfs/T10_Grid_Coupling_Catalog.pdf"
+            },
+            {
+                model: "1060",
+                category: "T10 Grid Couplings",
+                image: "https://via.placeholder.com/400x250/4a5568/ffffff?text=T10+1060",
+                bore: "65-170 mm",
+                torque: "38400 Nm",
+                rpm: "4500",
+                pdf: "assets/pdfs/T10_Grid_Coupling_Catalog.pdf"
+            },
+            {
+                model: "1070",
+                category: "T10 Grid Couplings",
+                image: "https://via.placeholder.com/400x250/4a5568/ffffff?text=T10+1070",
+                bore: "80-200 mm",
+                torque: "76800 Nm",
+                rpm: "4500",
+                pdf: "assets/pdfs/T10_Grid_Coupling_Catalog.pdf"
+            },
+            {
+                model: "1080",
+                category: "T10 Grid Couplings",
+                image: "https://via.placeholder.com/400x250/4a5568/ffffff?text=T10+1080",
+                bore: "95-220 mm",
+                torque: "135000 Nm",
+                rpm: "4500",
+                pdf: "assets/pdfs/T10_Grid_Coupling_Catalog.pdf"
+            },
+
+            // T20 Disc Couplings
+            {
+                model: "1010",
+                category: "T20 Disc Couplings",
+                image: "https://via.placeholder.com/400x250/718096/ffffff?text=T20+1010",
+                bore: "9-25 mm",
+                torque: "100 Nm",
+                rpm: "10000",
+                pdf: "assets/pdfs/T20_Disc_Coupling_Catalog.pdf"
+                },
+            {
+                model: "1020",
+                category: "T20 Disc Couplings",
+                image: "https://via.placeholder.com/400x250/718096/ffffff?text=T20+1020",
+                bore: "14-35 mm",
+                torque: "250 Nm",
+                rpm: "10000",
+                pdf: "assets/pdfs/T20_Disc_Coupling_Catalog.pdf"
+            },
+            {
+                model: "1030",
+                category: "T20 Disc Couplings",
+                image: "https://via.placeholder.com/400x250/718096/ffffff?text=T20+1030",
+                bore: "19-45 mm",
+                torque: "500 Nm",
+                rpm: "10000",
+                pdf: "assets/pdfs/T20_Disc_Coupling_Catalog.pdf"
+            },
+            {
+                model: "1040",
+                category: "T20 Disc Couplings",
+                image: "https://via.placeholder.com/400x250/718096/ffffff?text=T20+1040",
+                bore: "24-60 mm",
+                torque: "1000 Nm",
+                rpm: "10000",
+                pdf: "assets/pdfs/T20_Disc_Coupling_Catalog.pdf"
+            },
+            {
+                model: "1050",
+                category: "T20 Disc Couplings",
+                image: "https://via.placeholder.com/400x250/718096/ffffff?text=T20+1050",
+                bore: "30-75 mm",
+                torque: "2000 Nm",
+                rpm: "10000",
+                pdf: "assets/pdfs/T20_Disc_Coupling_Catalog.pdf"
+            },
+            {
+                model: "1060",
+                category: "T20 Disc Couplings",
+                image: "https://via.placeholder.com/400x250/718096/ffffff?text=T20+1060",
+                bore: "35-90 mm",
+                torque: "3500 Nm",
+                rpm: "10000",
+                pdf: "assets/pdfs/T20_Disc_Coupling_Catalog.pdf"
+            },
+            {
+                model: "1070",
+                category: "T20 Disc Couplings",
+                image: "https://via.placeholder.com/400x250/718096/ffffff?text=T20+1070",
+                bore: "45-110 mm",
+                torque: "6000 Nm",
+                rpm: "10000",
+                pdf: "assets/pdfs/T20_Disc_Coupling_Catalog.pdf"
+            },
+            {
+                model: "1080",
+                category: "T20 Disc Couplings",
+                image: "https://via.placeholder.com/400x250/718096/ffffff?text=T20+1080",
+                bore: "55-140 mm",
+                torque: "8500 Nm",
+                rpm: "10000",
+                pdf: "assets/pdfs/T20_Disc_Coupling_Catalog.pdf"
+            },
+
+            // Long-Term Grease
+            {
+                model: "LTG Pail",
+                category: "Long-Term Grease",
+                image: "https://via.placeholder.com/400x250/2d3748/ffffff?text=LTG+Pail",
+                bore: "N/A",
+                torque: "N/A",
+                rpm: "N/A",
+                pdf: "assets/pdfs/840201_Falk-Long-Term-Grease_WEB (1).pdf"
+            },
+            {
+                model: "LTG Tube",
+                category: "Long-Term Grease",
+                image: "https://via.placeholder.com/400x250/2d3748/ffffff?text=LTG+Tube",
+                bore: "N/A",
+                torque: "N/A",
+                rpm: "N/A",
+                pdf: "assets/pdfs/840201_Falk-Long-Term-Grease_WEB (1).pdf"
+            }
+        ];
+
+        // Display products
+        function displayProducts(searchTerm = '') {
+            const container = document.getElementById('productsContainer');
+            
+            let filtered = products;
+            
+            if (searchTerm) {
+                filtered = products.filter(product => {
+                    const searchable = (product.model + ' ' + product.category).toLowerCase();
+                    return searchable.includes(searchTerm.toLowerCase());
+                });
+            }
+            
+            // Group by category
+            const grouped = {};
+            filtered.forEach(product => {
+                if (!grouped[product.category]) {
+                    grouped[product.category] = [];
+                }
+                grouped[product.category].push(product);
+            });
+            
+            let html = '';
+            
+            Object.keys(grouped).forEach(category => {
+                html += `
+                    <div class="category-section">
+                        <div class="category-header">
+                            <h2 class="category-title">${category}</h2>
+                            <p class="category-description">${grouped[category].length} produk tersedia untuk kategori ${category}</p>
+                        </div>
+                        <div class="products-grid">
+                `;
+                
+                grouped[category].forEach(product => {
+                    html += `
+                        <div class="product-card">
+                            <img src="${product.image}" alt="${product.model}" class="product-image">
+                            <div class="product-content">
+                                <div class="product-category">${product.category}</div>
+                                <h3 class="product-model">${product.model}</h3>
+                                <div class="product-specs">
+                                    <div class="spec-row">
+                                        <span class="spec-label">Bore Range:</span>
+                                        <span class="spec-value">${product.bore}</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Max Torque:</span>
+                                        <span class="spec-value">${product.torque}</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Max RPM:</span>
+                                        <span class="spec-value">${product.rpm}</span>
+                                    </div>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="btn-detail" onclick="showDetail('${product.model}')">Detail</button>
+                                    <a href="${product.pdf}" class="btn-pdf" target="_blank">PDF</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += `
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // Quick search
+        function quickSearch(term) {
+            document.getElementById('searchInput').value = term;
+            displayProducts(term);
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            displayProducts(this.value);
+        });
+
+        // Show detail (placeholder)
+        function showDetail(model) {
+            alert(`Detail produk untuk ${model} akan segera tersedia. Hubungi kami untuk informasi lebih lanjut.`);
+        }
+
+        // Initial display
+        displayProducts();
+    </script>
+</body>
+</html>
