@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Katalog Ultimate - Falk Rexnord</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #f5f5f5; }
+        .header { text-align: center; background: #1a365d; color: white; padding: 20px; margin-bottom: 20px; }
+        .search { text-align: center; margin: 20px 0; }
+        .search input { width: 300px; padding: 10px; font-size: 16px; }
+        .buttons { margin: 10px 0; }
+        .btn { padding: 8px 16px; margin: 5px; background: #2196f3; color: white; border: none; cursor: pointer; }
+        .btn:hover { background: #1976d2; }
+        .category { margin: 30px 0; background: white; padding: 20px; border-radius: 8px; }
+        .category h2 { color: #1a365d; border-bottom: 2px solid #2196f3; padding-bottom: 10px; }
+        .product { border: 1px solid #ddd; margin: 10px 0; padding: 15px; border-radius: 5px; }
+        .product:hover { box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .model { font-size: 18px; font-weight: bold; color: #1a365d; }
+        .specs { margin: 10px 0; }
+        .spec-row { display: flex; justify-content: space-between; padding: 3px 0; }
+        .label { font-weight: bold; color: #555; }
+        .value { color: #333; }
+        .stats { text-align: center; background: #e8f5e8; padding: 10px; margin: 10px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔧 Katalog Lengkap Falk Rexnord</h1>
+        <p>39 Produk - Semua Tipe Coupling & Lubricants</p>
+    </div>
+
+    <div class="search">
+        <input type="text" id="searchInput" placeholder="Cari: steelflex, gear, pumps, mining..." onkeyup="doSearch()">
+        <div class="buttons">
+            <button class="btn" onclick="quickSearch('steelflex')">Steelflex</button>
+            <button class="btn" onclick="quickSearch('gear')">Gear Coupling</button>
+            <button class="btn" onclick="quickSearch('wrapflex')">Wrapflex</button>
+            <button class="btn" onclick="quickSearch('t10')">T10 Grid</button>
+            <button class="btn" onclick="quickSearch('t20')">T20 Disc</button>
+            <button class="btn" onclick="quickSearch('pumps')">Pumps</button>
+            <button class="btn" onclick="quickSearch('mining')">Mining</button>
+            <button class="btn" onclick="quickSearch('')">Semua</button>
+        </div>
+    </div>
+
+    <div class="stats" id="stats">Menampilkan 39 produk</div>
+    <div id="catalog"></div>
+
+    <script>
+        // Data lengkap 39 produk
+        const catalog = [
+            // STEELFLEX COUPLINGS (5 produk)
+            {model: "1020T", cat: "Steelflex Couplings", bore: "12-30 mm", torque: "200 Nm", rpm: "5000", apps: ["Precision drives", "Servo", "High-speed", "Small pumps", "Machine tools", "Automation"]},
+            {model: "1030T", cat: "Steelflex Couplings", bore: "15-60 mm", torque: "500 Nm", rpm: "5000", apps: ["Industrial drives", "Machine tools", "Automation", "Medium pumps", "Precision", "Servo"]},
+            {model: "1040T", cat: "Steelflex Couplings", bore: "20-90 mm", torque: "900 Nm", rpm: "5000", apps: ["Heavy industrial", "Power transmission", "Machine tools", "Heavy pumps", "Steel mills", "Mining"]},
+            {model: "1050T", cat: "Steelflex Couplings", bore: "25-120 mm", torque: "1600 Nm", rpm: "5000", apps: ["Extra-heavy drives", "Power transmission", "Heavy machinery", "Large pumps", "Steel mills", "Mining"]},
+            {model: "1060T", cat: "Steelflex Couplings", bore: "30-150 mm", torque: "2800 Nm", rpm: "5000", apps: ["Maximum capacity", "Power transmission", "Heavy industrial", "Steel mill drives", "Mining", "Power generation"]},
+            
+            // GEAR COUPLINGS (7 produk)
+            {model: "1010G", cat: "Gear Couplings", bore: "12-40 mm", torque: "400 Nm", rpm: "4500", apps: ["Small steel mill", "Precision", "High-speed", "Machine tools", "Pumps", "Compressors"]},
+            {model: "1020G", cat: "Gear Couplings", bore: "20-80 mm", torque: "1000 Nm", rpm: "4500", apps: ["Medium steel mill", "Industrial", "Mining", "Power transmission", "Heavy pumps", "Conveyors"]},
+            {model: "1030G", cat: "Gear Couplings", bore: "25-120 mm", torque: "1800 Nm", rpm: "4500", apps: ["Heavy steel mill", "Mining", "Power transmission", "Heavy industry", "Steel mills", "Power generation"]},
+            {model: "1040G", cat: "Gear Couplings", bore: "30-150 mm", torque: "3200 Nm", rpm: "4500", apps: ["Extra-heavy steel", "Heavy mining", "Industrial power", "Steel mills", "Mining", "Power generation"]},
+            {model: "1050G", cat: "Gear Couplings", bore: "35-180 mm", torque: "5600 Nm", rpm: "4500", apps: ["Ultra-heavy steel", "Mining", "Power generation", "Steel mills", "Heavy industry", "Marine"]},
+            {model: "1060G", cat: "Gear Couplings", bore: "40-210 mm", torque: "10000 Nm", rpm: "4500", apps: ["Maximum capacity", "Heavy industry", "Power plants", "Steel mills", "Mining", "Marine"]},
+            {model: "1070G", cat: "Gear Couplings", bore: "45-240 mm", torque: "18000 Nm", rpm: "4500", apps: ["Ultimate capacity", "Power generation", "Heavy marine", "Steel mills", "Mining", "Heavy industry"]},
+            
+            // WRAPFLEX COUPLINGS (9 produk)
+            {model: "5R", cat: "Wrapflex Couplings", bore: "5-15 mm", torque: "62 Nm", rpm: "6000", apps: ["Small pumps", "Motors", "Conveyors", "Agricultural", "HVAC", "Industrial"]},
+            {model: "10R", cat: "Wrapflex Couplings", bore: "8-25 mm", torque: "130 Nm", rpm: "6000", apps: ["Medium pumps", "Industrial", "HVAC", "Conveyors", "Compressors", "Fans"]},
+            {model: "20R", cat: "Wrapflex Couplings", bore: "10-50 mm", torque: "316 Nm", rpm: "6000", apps: ["Heavy pumps", "Industrial fans", "Mining", "Conveyors", "Steel mills", "Power"]},
+            {model: "30R", cat: "Wrapflex Couplings", bore: "12-75 mm", torque: "529 Nm", rpm: "6000", apps: ["Large pumps", "Compressors", "Marine", "Heavy industrial", "Power generation", "Mining"]},
+            {model: "40R", cat: "Wrapflex Couplings", bore: "15-100 mm", torque: "1033 Nm", rpm: "6000", apps: ["Heavy industrial", "Steel mills", "Power generation", "Mining", "Marine", "Oil & gas"]},
+            {model: "50R", cat: "Wrapflex Couplings", bore: "18-125 mm", torque: "2508 Nm", rpm: "6000", apps: ["Extra-heavy", "Mining", "Oil & gas", "Power generation", "Steel", "Heavy industry"]},
+            {model: "60R", cat: "Wrapflex Couplings", bore: "20-150 mm", torque: "4011 Nm", rpm: "6000", apps: ["Ultra-heavy", "Steel", "Power plants", "Mining", "Marine", "Heavy industry"]},
+            {model: "70R", cat: "Wrapflex Couplings", bore: "25-175 mm", torque: "8011 Nm", rpm: "6000", apps: ["Maximum capacity", "Heavy industry", "Marine", "Power generation", "Steel mills", "Mining"]},
+            {model: "80R", cat: "Wrapflex Couplings", bore: "30-200 mm", torque: "15027 Nm", rpm: "6000", apps: ["Ultimate capacity", "Power generation", "Heavy marine", "Steel mills", "Mining", "Heavy industry"]},
+            
+            // T10 GRID COUPLINGS (8 produk)
+            {model: "1010", cat: "T10 Grid Couplings", bore: "19-45 mm", torque: "1200 Nm", rpm: "4500", apps: ["Small industrial", "Pumps", "Compressors", "Light", "General", "Conveyors"]},
+            {model: "1020", cat: "T10 Grid Couplings", bore: "25-65 mm", torque: "2400 Nm", rpm: "4500", apps: ["Medium industrial", "Heavy pumps", "Compressors", "Conveyors", "Mining", "Steel mills"]},
+            {model: "1030", cat: "T10 Grid Couplings", bore: "35-85 mm", torque: "4800 Nm", rpm: "4500", apps: ["Heavy industrial", "Mining", "Steel mills", "Heavy pumps", "Power transmission", "Heavy industry"]},
+            {model: "1040", cat: "T10 Grid Couplings", bore: "45-110 mm", torque: "9600 Nm", rpm: "4500", apps: ["Extra-heavy", "Mining", "Steel mills", "Power generation", "Heavy industry", "Marine"]},
+            {model: "1050", cat: "T10 Grid Couplings", bore: "55-140 mm", torque: "19200 Nm", rpm: "4500", apps: ["Ultra-heavy", "Mining", "Steel mills", "Power generation", "Heavy industry", "Marine"]},
+            {model: "1060", cat: "T10 Grid Couplings", bore: "65-170 mm", torque: "38400 Nm", rpm: "4500", apps: ["Maximum capacity", "Mining", "Steel mills", "Power generation", "Heavy industry", "Marine"]},
+            {model: "1070", cat: "T10 Grid Couplings", bore: "80-200 mm", torque: "76800 Nm", rpm: "4500", apps: ["Largest", "Mining", "Steel mills", "Power generation", "Heavy industry", "Marine"]},
+            {model: "1080", cat: "T10 Grid Couplings", bore: "95-220 mm", torque: "135000 Nm", rpm: "4500", apps: ["Ultimate", "Mining", "Steel mills", "Power generation", "Heavy industry", "Marine"]},
+            
+            // T20 DISC COUPLINGS (8 produk)
+            {model: "1010", cat: "T20 Disc Couplings", bore: "9-25 mm", torque: "100 Nm", rpm: "10000", apps: ["Precision", "Servo drives", "Machine tools", "Automation", "High-speed", "Precision"]},
+            {model: "1020", cat: "T20 Disc Couplings", bore: "14-35 mm", torque: "250 Nm", rpm: "10000", apps: ["Precision", "Servo drives", "Machine tools", "Printing", "High-speed", "Automation"]},
+            {model: "1030", cat: "T20 Disc Couplings", bore: "19-45 mm", torque: "500 Nm", rpm: "10000", apps: ["Medium precision", "Servo drives", "Machine tools", "Textile", "High-speed", "Precision"]},
+            {model: "1040", cat: "T20 Disc Couplings", bore: "24-60 mm", torque: "1000 Nm", rpm: "10000", apps: ["High precision", "Heavy servo", "Machine tools", "Printing", "High-speed", "Automation"]},
+            {model: "1050", cat: "T20 Disc Couplings", bore: "30-75 mm", torque: "2000 Nm", rpm: "10000", apps: ["Heavy precision", "Industrial servo", "Heavy machine tools", "Packaging", "High-speed", "Precision"]},
+            {model: "1060", cat: "T20 Disc Couplings", bore: "35-90 mm", torque: "3500 Nm", rpm: "10000", apps: ["Extra-heavy", "Industrial servo", "Heavy machine tools", "Printing", "High-speed", "Automation"]},
+            {model: "1070", cat: "T20 Disc Couplings", bore: "45-110 mm", torque: "6000 Nm", rpm: "10000", apps: ["Maximum precision", "Heavy industrial servo", "Heavy machine tools", "Printing", "High-speed", "Precision"]},
+            {model: "1080", cat: "T20 Disc Couplings", bore: "55-140 mm", torque: "8500 Nm", rpm: "10000", apps: ["Largest precision", "Heavy industrial servo", "Heavy machine tools", "Printing", "High-speed", "Precision"]},
+            
+            // LONG-TERM GREASE (2 produk)
+            {model: "LTG Pail", cat: "Long-Term Grease", bore: "N/A", torque: "N/A", rpm: "N/A", apps: ["Industrial maintenance", "Bulk lubrication", "Workshop", "Manufacturing", "Gear couplings", "Heavy machinery"]},
+            {model: "LTG Tube", cat: "Long-Term Grease", bore: "N/A", torque: "N/A", rpm: "N/A", apps: ["Field maintenance", "Spot lubrication", "Emergency repairs", "Service calls", "Gear couplings", "Industrial"]}
+        ];
+
+        function doSearch() {
+            const term = document.getElementById('searchInput').value.toLowerCase();
+            displayCatalog(term);
+        }
+
+        function quickSearch(term) {
+            document.getElementById('searchInput').value = term;
+            displayCatalog(term);
+        }
+
+        function displayCatalog(searchTerm = '') {
+            const catalogDiv = document.getElementById('catalog');
+            const statsDiv = document.getElementById('stats');
+            
+            let filtered = catalog;
+            
+            if (searchTerm) {
+                filtered = catalog.filter(item => {
+                    const searchable = (item.model + ' ' + item.cat + ' ' + item.apps.join(' ')).toLowerCase();
+                    return searchable.includes(searchTerm);
+                });
+            }
+            
+            statsDiv.innerHTML = `Menampilkan ${filtered.length} dari ${catalog.length} produk${searchTerm ? ' untuk: "' + searchTerm + '"' : ''}`;
+            
+            // Group by category
+            const grouped = {};
+            filtered.forEach(item => {
+                if (!grouped[item.cat]) grouped[item.cat] = [];
+                grouped[item.cat].push(item);
+            });
+            
+            let html = '';
+            Object.keys(grouped).forEach(cat => {
+                html += `<div class="category">`;
+                html += `<h2>${cat} (${grouped[cat].length} produk)</h2>`;
+                grouped[cat].forEach(item => {
+                    html += `<div class="product">`;
+                    html += `<div class="model">${item.model}</div>`;
+                    html += `<div class="specs">`;
+                    html += `<div class="spec-row"><span class="label">Bore:</span><span class="value">${item.bore}</span></div>`;
+                    html += `<div class="spec-row"><span class="label">Torque:</span><span class="value">${item.torque}</span></div>`;
+                    html += `<div class="spec-row"><span class="label">RPM:</span><span class="value">${item.rpm}</span></div>`;
+                    html += `<div class="spec-row"><span class="label">Aplikasi:</span><span class="value">${item.apps.slice(0, 3).join(', ')}</span></div>`;
+                    html += `</div>`;
+                    html += `</div>`;
+                });
+                html += `</div>`;
+            });
+            
+            catalogDiv.innerHTML = html;
+        }
+
+        // Initial display
+        displayCatalog();
+    </script>
+</body>
+</html>
