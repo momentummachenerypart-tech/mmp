@@ -29,6 +29,13 @@ html { scroll-behavior: smooth; }
 
 .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
+/* Mobile consistency */
+img { max-width: 100%; height: auto; }
+body { overflow-x: hidden; }
+html, body { width: 100%; }
+
+
+
 /* Loading */
 .loading-screen {
   position: fixed;
@@ -64,6 +71,10 @@ html { scroll-behavior: smooth; }
 .header-wrapper.scrolled { background: rgba(255,255,255,0.95); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
 
 header { padding: 14px 0; }
+
+/* prevent layout shift on iOS/Android */
+html, body { overflow-x: hidden; }
+
 nav { display: flex; justify-content: space-between; align-items: center; }
 .logo { display: flex; gap: 12px; align-items: center; text-decoration: none; color: var(--primary-color); font-weight: 800; font-size: 1.25rem; }
 .logo img { width: 42px; height: 42px; border-radius: 12px; box-shadow: var(--shadow); }
@@ -423,6 +434,10 @@ section { scroll-margin-top: 120px; }
 
 /* Responsive (Mobile First) */
 @media (max-width: 860px) {
+  /* header fixed: kurangi ruang biar konten tidak loncat/terpotong */
+  header { padding: 10px 0; }
+  .hero { padding-top: 84px; }
+
   .panel-row { grid-template-columns: 1fr; }
   .hero h1 { font-size: 2.2rem; }
   .hero .subtitle { font-size: 1.2rem; }
@@ -442,10 +457,29 @@ section { scroll-margin-top: 120px; }
   .floating-back-to-top { bottom: 78px; right: 16px; }
 }
 /*  */
-/* Desktop/Teblet tuning */
+/* Tablet tuning */
 @media (max-width: 768px) {
   #katalog { scroll-margin-top: 140px; }
-  .hero h1 { font-size: 3rem; }
+
+  /* Jangan terlalu besar di mobile biar tidak berpotensi terpotong */
+  .hero { padding-top: 84px; }
+  .hero h1 { font-size: 2.1rem; line-height: 1.15; }
 }
+
+/* Extra small (hp kecil) */
+@media (max-width: 480px) {
+  .container { padding: 0 14px; }
+
+  .hero { min-height: 70vh; padding-top: 76px; }
+  .hero-content { padding: 0 0 40px; }
+
+  .hero h1 { font-size: 1.75rem; line-height: 1.15; }
+  .hero .subtitle { font-size: 1.05rem; }
+
+  .section-title { font-size: 1.7rem; }
+  .section-subtitle { margin-bottom: 22px; }
+}
+
+
 
 
