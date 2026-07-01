@@ -31,7 +31,7 @@ html { scroll-behavior: smooth; }
     max-width: 1100px; /* Lebar maksimal di layar besar */
     width: 100%;       /* Memastikan fleksibel di layar HP */
     margin: 0 auto;    /* Posisikan di tengah */
-    padding: 0 15px;   /* Jarak aman di sisi kiri dan kanan */
+    padding: 0 20px;   /* Jarak aman di sisi kiri dan kanan */
     box-sizing: border-box; /* WAJIB: agar padding tidak menambah lebar container */
 }
 
