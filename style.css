@@ -94,15 +94,15 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
   color: #fff;
   display: flex;
-  @media (max-width: 768px) {
+  align-items: center;
+}
+@media (max-width: 768px) {
     .hero {
         flex-direction: column; /* Mengubah arah menjadi vertikal di HP */
         text-align: center;     /* Merapikan teks ke tengah */
         padding-top: 50px;      /* Sesuaikan jarak atas agar tidak terlalu mepet */
         min-height: auto;       /* Agar tinggi mengikuti isi konten, bukan kaku 80vh */
     }
-}
-  align-items: center;
 }
 .hero::after {
   content: '';
