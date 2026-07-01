@@ -6,7 +6,7 @@
   --secondary-dark: #d4af37;
   --accent-light: #f1f5f9;
   --text-color: #1e293b;
-  --text-light: #64748b;
+  --text-light: #0b1016;
   --light-color: #ffffff;
   --border-light: #e2e8f0;
   --shadow: 0 6px 18px rgba(20, 43, 79, 0.12);
@@ -27,11 +27,7 @@ body {
 
 html { scroll-behavior: smooth; }
 
-.container { 
-    max-width: 1100px;
-    margin: 0 auto;   
-    padding: 0 20px; 
-}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
 /* Loading */
 .loading-screen {
@@ -445,9 +441,9 @@ section { scroll-margin-top: 120px; }
   .floating-whatsapp { bottom: 18px; right: 16px; }
   .floating-back-to-top { bottom: 78px; right: 16px; }
 }
-
+/*  */
 /* Desktop/Teblet tuning */
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   #katalog { scroll-margin-top: 140px; }
   .hero h1 { font-size: 3rem; }
 }
