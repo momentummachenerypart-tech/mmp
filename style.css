@@ -439,7 +439,7 @@ section { scroll-margin-top: 120px; }
   .hero { padding-top: 84px; }
 
   /* Mengapa Memilih (mobile) */
-  .about-why { padding: 55px 0 70px; }
+  .about-why { padding: 35px 0 55px; }
   .why-grid { grid-template-columns: 1fr; }
   .why-item { align-items: flex-start; }
 
