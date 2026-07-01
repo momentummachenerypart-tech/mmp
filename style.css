@@ -29,7 +29,7 @@ html { scroll-behavior: smooth; }
 
 .container { 
     max-width: 1100px; /* Lebar maksimal di layar besar */
-    width: 100%;       /* Memastikan fleksibel di layar HP */
+    width: 500%;       /* Memastikan fleksibel di layar HP */
     margin: 0 auto;    /* Posisikan di tengah */
     padding: 0 20px;   /* Jarak aman di sisi kiri dan kanan */
     box-sizing: border-box; /* WAJIB: agar padding tidak menambah lebar container */
